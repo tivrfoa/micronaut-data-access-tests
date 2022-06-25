@@ -43,7 +43,7 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`) VALUES (?)"),
+                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`,`value`,`country`) VALUES (?,?,?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
@@ -58,6 +58,12 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
                               AnnotationUtil.mapOf("property", "name"),
                               var0 = AnnotationMetadataSupport.getDefaultValues("io.micronaut.data.intercept.annotation.DataMethodQueryParameter")
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
                            )
                         },
                         "resultDataType",
@@ -72,7 +78,7 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`) VALUES (?)"),
+                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`,`value`,`country`) VALUES (?,?,?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
@@ -85,6 +91,12 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                         new AnnotationValue[]{
                            new AnnotationValue(
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
                            )
                         },
                         "resultDataType",
@@ -137,7 +149,9 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                      true
                   ),
                   null
-               )
+               ),
+               Argument.of(Double.TYPE, "value"),
+               Argument.of(String.class, "country")
             },
             true,
             false
@@ -259,7 +273,9 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                      true
                   ),
                   null
-               )
+               ),
+               Argument.of(Double.TYPE, "value"),
+               Argument.of(String.class, "country")
             },
             false,
             false
@@ -419,19 +435,383 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
             false
          ),
          new AbstractExecutableMethodsDefinition.MethodReference(
+            GenreRepository.class,
+            new AnnotationMetadataHierarchy(
+               $GenreRepository$Intercepted$Definition$Reference.$ANNOTATION_METADATA,
+               new DefaultAnnotationMetadata(
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `value`=? WHERE (`id` = ?)"),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "id",
+                        "id",
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_4()},
+                        "opType",
+                        DataMethod.OperationType.UPDATE,
+                        "parameters",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.DOUBLE, "parameterIndex", 1, "property", "value"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.LONG, "parameterIndex", 0, "property", "id"),
+                              var0
+                           )
+                        },
+                        "resultDataType",
+                        DataType.LONG,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_5()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  Collections.EMPTY_MAP,
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `value`=? WHERE (`id` = ?)"),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "id",
+                        "id",
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_4()},
+                        "opType",
+                        DataMethod.OperationType.UPDATE,
+                        "parameters",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.DOUBLE, "parameterIndex", 1, "property", "value"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.LONG, "parameterIndex", 0, "property", "id"),
+                              var0
+                           )
+                        },
+                        "resultDataType",
+                        DataType.LONG,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_5()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  false,
+                  true
+               )
+            ),
+            "update",
+            Argument.LONG,
+            new Argument[]{
+               Argument.of(
+                  Long.class,
+                  "id",
+                  new DefaultAnnotationMetadata(
+                     AnnotationUtil.mapOf(
+                        "io.micronaut.data.annotation.Id",
+                        Collections.EMPTY_MAP,
+                        "javax.annotation.Nonnull",
+                        Collections.EMPTY_MAP,
+                        "javax.validation.constraints.NotNull$List",
+                        AnnotationUtil.mapOf(
+                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotNull", Collections.EMPTY_MAP, var3)}
+                        )
+                     ),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
+                     AnnotationUtil.mapOf(
+                        "io.micronaut.data.annotation.Id",
+                        Collections.EMPTY_MAP,
+                        "javax.annotation.Nonnull",
+                        Collections.EMPTY_MAP,
+                        "javax.validation.constraints.NotNull$List",
+                        AnnotationUtil.mapOf(
+                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotNull", Collections.EMPTY_MAP, var3)}
+                        )
+                     ),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.internListOf("javax.validation.constraints.NotNull")),
+                     false,
+                     true
+                  ),
+                  null
+               ),
+               Argument.of(Double.TYPE, "value")
+            },
+            true,
+            false
+         ),
+         new AbstractExecutableMethodsDefinition.MethodReference(
+            GenreRepository.class,
+            new AnnotationMetadataHierarchy(
+               $GenreRepository$Intercepted$Definition$Reference.$ANNOTATION_METADATA,
+               new DefaultAnnotationMetadata(
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=?,`value`=? WHERE (`id` = ?)"),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "id",
+                        "id",
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_4()},
+                        "opType",
+                        DataMethod.OperationType.UPDATE,
+                        "parameters",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.STRING, "parameterIndex", 1, "property", "name"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.DOUBLE, "parameterIndex", 2, "property", "value"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.LONG, "parameterIndex", 0, "property", "id"),
+                              var0
+                           )
+                        },
+                        "resultDataType",
+                        DataType.LONG,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_5()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  Collections.EMPTY_MAP,
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=?,`value`=? WHERE (`id` = ?)"),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "id",
+                        "id",
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_4()},
+                        "opType",
+                        DataMethod.OperationType.UPDATE,
+                        "parameters",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.STRING, "parameterIndex", 1, "property", "name"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.DOUBLE, "parameterIndex", 2, "property", "value"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("dataType", DataType.LONG, "parameterIndex", 0, "property", "id"),
+                              var0
+                           )
+                        },
+                        "resultDataType",
+                        DataType.LONG,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_5()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  false,
+                  true
+               )
+            ),
+            "update",
+            Argument.LONG,
+            new Argument[]{
+               Argument.of(
+                  Long.class,
+                  "id",
+                  new DefaultAnnotationMetadata(
+                     AnnotationUtil.mapOf(
+                        "io.micronaut.data.annotation.Id",
+                        Collections.EMPTY_MAP,
+                        "javax.annotation.Nonnull",
+                        Collections.EMPTY_MAP,
+                        "javax.validation.constraints.NotNull$List",
+                        AnnotationUtil.mapOf(
+                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotNull", Collections.EMPTY_MAP, var3)}
+                        )
+                     ),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
+                     AnnotationUtil.mapOf(
+                        "io.micronaut.data.annotation.Id",
+                        Collections.EMPTY_MAP,
+                        "javax.annotation.Nonnull",
+                        Collections.EMPTY_MAP,
+                        "javax.validation.constraints.NotNull$List",
+                        AnnotationUtil.mapOf(
+                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotNull", Collections.EMPTY_MAP, var3)}
+                        )
+                     ),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.internListOf("javax.validation.constraints.NotNull")),
+                     false,
+                     true
+                  ),
+                  null
+               ),
+               Argument.of(
+                  String.class,
+                  "name",
+                  new DefaultAnnotationMetadata(
+                     AnnotationUtil.mapOf(
+                        "javax.annotation.Nonnull",
+                        Collections.EMPTY_MAP,
+                        "javax.validation.constraints.NotBlank$List",
+                        AnnotationUtil.mapOf(
+                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotBlank", Collections.EMPTY_MAP, var1)}
+                        )
+                     ),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
+                     AnnotationUtil.mapOf(
+                        "javax.annotation.Nonnull",
+                        Collections.EMPTY_MAP,
+                        "javax.validation.constraints.NotBlank$List",
+                        AnnotationUtil.mapOf(
+                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotBlank", Collections.EMPTY_MAP, var1)}
+                        )
+                     ),
+                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.internListOf("javax.validation.constraints.NotBlank")),
+                     false,
+                     true
+                  ),
+                  null
+               ),
+               Argument.of(Double.TYPE, "value")
+            },
+            true,
+            false
+         ),
+         new AbstractExecutableMethodsDefinition.MethodReference(
+            GenreRepository.class,
+            new AnnotationMetadataHierarchy(
+               $GenreRepository$Intercepted$Definition$Reference.$ANNOTATION_METADATA,
+               new DefaultAnnotationMetadata(
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=?,`value`=?,`country`=? WHERE (`id` = ?)"),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "entity",
+                        "genre",
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_6()},
+                        "opType",
+                        DataMethod.OperationType.UPDATE,
+                        "parameters",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
+                           ),
+                           new AnnotationValue("io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "id"), var0)
+                        },
+                        "resultDataType",
+                        DataType.ENTITY,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  Collections.EMPTY_MAP,
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=?,`value`=?,`country`=? WHERE (`id` = ?)"),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "entity",
+                        "genre",
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_6()},
+                        "opType",
+                        DataMethod.OperationType.UPDATE,
+                        "parameters",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
+                           ),
+                           new AnnotationValue("io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "id"), var0)
+                        },
+                        "resultDataType",
+                        DataType.ENTITY,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  false,
+                  true
+               )
+            ),
+            "update",
+            Argument.of(Genre.class, "com.example.Genre"),
+            new Argument[]{Argument.of(Genre.class, "genre")},
+            true,
+            false
+         ),
+         new AbstractExecutableMethodsDefinition.MethodReference(
             PageableRepository.class,
             new AnnotationMetadataHierarchy(
                $GenreRepository$Intercepted$Definition$Reference.$ANNOTATION_METADATA,
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_"),
+                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_6()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_7()},
                         "opType",
                         DataMethod.OperationType.QUERY,
                         "resultDataType",
@@ -450,13 +830,13 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_"),
+                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_6()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_7()},
                         "opType",
                         DataMethod.OperationType.QUERY,
                         "resultDataType",
@@ -504,13 +884,18 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("countQuery", "SELECT COUNT(*) FROM `genre` genre_", "value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_"),
+                     AnnotationUtil.mapOf(
+                        "countQuery",
+                        "SELECT COUNT(*) FROM `genre` genre_",
+                        "value",
+                        "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_"
+                     ),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_7()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_8()},
                         "opType",
                         DataMethod.OperationType.QUERY,
                         "pageable",
@@ -531,13 +916,18 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("countQuery", "SELECT COUNT(*) FROM `genre` genre_", "value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_"),
+                     AnnotationUtil.mapOf(
+                        "countQuery",
+                        "SELECT COUNT(*) FROM `genre` genre_",
+                        "value",
+                        "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_"
+                     ),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_7()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_8()},
                         "opType",
                         DataMethod.OperationType.QUERY,
                         "pageable",
@@ -587,7 +977,7 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`) VALUES (?)"),
+                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`,`value`,`country`) VALUES (?,?,?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "entity",
@@ -595,13 +985,19 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_8()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_9()},
                         "opType",
                         DataMethod.OperationType.INSERT,
                         "parameters",
                         new AnnotationValue[]{
                            new AnnotationValue(
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
                            )
                         },
                         "resultDataType",
@@ -618,7 +1014,7 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`) VALUES (?)"),
+                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`,`value`,`country`) VALUES (?,?,?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "entity",
@@ -626,13 +1022,19 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_8()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_9()},
                         "opType",
                         DataMethod.OperationType.INSERT,
                         "parameters",
                         new AnnotationValue[]{
                            new AnnotationValue(
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
                            )
                         },
                         "resultDataType",
@@ -697,125 +1099,13 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=? WHERE (`id` = ?)"),
-                     "io.micronaut.data.intercept.annotation.DataMethod",
-                     AnnotationUtil.mapOf(
-                        "entity",
-                        "entity",
-                        "idType",
-                        "java.lang.Long",
-                        "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_9()},
-                        "opType",
-                        DataMethod.OperationType.UPDATE,
-                        "parameters",
-                        new AnnotationValue[]{
-                           new AnnotationValue(
-                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
-                           ),
-                           new AnnotationValue("io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "id"), var0)
-                        },
-                        "resultDataType",
-                        DataType.ENTITY,
-                        "resultType",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_1()},
-                        "rootEntity",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
-                     ),
-                     "javax.annotation.Nonnull",
-                     Collections.EMPTY_MAP
-                  ),
-                  Collections.EMPTY_MAP,
-                  Collections.EMPTY_MAP,
-                  AnnotationUtil.mapOf(
-                     "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=? WHERE (`id` = ?)"),
-                     "io.micronaut.data.intercept.annotation.DataMethod",
-                     AnnotationUtil.mapOf(
-                        "entity",
-                        "entity",
-                        "idType",
-                        "java.lang.Long",
-                        "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_9()},
-                        "opType",
-                        DataMethod.OperationType.UPDATE,
-                        "parameters",
-                        new AnnotationValue[]{
-                           new AnnotationValue(
-                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
-                           ),
-                           new AnnotationValue("io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "id"), var0)
-                        },
-                        "resultDataType",
-                        DataType.ENTITY,
-                        "resultType",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_1()},
-                        "rootEntity",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
-                     ),
-                     "javax.annotation.Nonnull",
-                     Collections.EMPTY_MAP
-                  ),
-                  Collections.EMPTY_MAP,
-                  false,
-                  true
-               )
-            ),
-            "update",
-            Argument.ofTypeVariable(Genre.class, "com.example.Genre", "S", null, null),
-            new Argument[]{
-               Argument.ofTypeVariable(
-                  Genre.class,
-                  "entity",
-                  "S",
-                  new DefaultAnnotationMetadata(
-                     AnnotationUtil.mapOf(
-                        "javax.annotation.Nonnull",
-                        Collections.EMPTY_MAP,
-                        "javax.validation.Valid",
-                        Collections.EMPTY_MAP,
-                        "javax.validation.constraints.NotNull$List",
-                        AnnotationUtil.mapOf(
-                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotNull", Collections.EMPTY_MAP, var3)}
-                        )
-                     ),
-                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
-                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.mapOf("validatedBy", ArrayUtils.EMPTY_OBJECT_ARRAY)),
-                     AnnotationUtil.mapOf(
-                        "javax.annotation.Nonnull",
-                        Collections.EMPTY_MAP,
-                        "javax.validation.Valid",
-                        Collections.EMPTY_MAP,
-                        "javax.validation.constraints.NotNull$List",
-                        AnnotationUtil.mapOf(
-                           "value", new AnnotationValue[]{new AnnotationValue("javax.validation.constraints.NotNull", Collections.EMPTY_MAP, var3)}
-                        )
-                     ),
-                     AnnotationUtil.mapOf("javax.validation.Constraint", AnnotationUtil.internListOf("javax.validation.constraints.NotNull")),
-                     false,
-                     true
-                  ),
-                  null
-               )
-            },
-            true,
-            false
-         ),
-         new AbstractExecutableMethodsDefinition.MethodReference(
-            CrudRepository.class,
-            new AnnotationMetadataHierarchy(
-               $GenreRepository$Intercepted$Definition$Reference.$ANNOTATION_METADATA,
-               new DefaultAnnotationMetadata(
-                  AnnotationUtil.mapOf(
-                     "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=? WHERE (`id` = ?)"),
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=?,`value`=?,`country`=? WHERE (`id` = ?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "entities",
                         "entities",
                         "expandableQuery",
-                        new String[]{"UPDATE `genre` SET `name`=", " WHERE (`id` = ", ")"},
+                        new String[]{"UPDATE `genre` SET `name`=", ",`value`=", ",`country`=", " WHERE (`id` = ", ")"},
                         "idType",
                         "java.lang.Long",
                         "interceptor",
@@ -827,6 +1117,16 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                            new AnnotationValue(
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
                               AnnotationUtil.mapOf("expandable", true, "property", "name"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("expandable", true, "property", "value"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("expandable", true, "property", "country"),
                               var0
                            ),
                            new AnnotationValue(
@@ -849,13 +1149,13 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=? WHERE (`id` = ?)"),
+                     AnnotationUtil.mapOf("value", "UPDATE `genre` SET `name`=?,`value`=?,`country`=? WHERE (`id` = ?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "entities",
                         "entities",
                         "expandableQuery",
-                        new String[]{"UPDATE `genre` SET `name`=", " WHERE (`id` = ", ")"},
+                        new String[]{"UPDATE `genre` SET `name`=", ",`value`=", ",`country`=", " WHERE (`id` = ", ")"},
                         "idType",
                         "java.lang.Long",
                         "interceptor",
@@ -867,6 +1167,16 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                            new AnnotationValue(
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
                               AnnotationUtil.mapOf("expandable", true, "property", "name"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("expandable", true, "property", "value"),
+                              var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter",
+                              AnnotationUtil.mapOf("expandable", true, "property", "country"),
                               var0
                            ),
                            new AnnotationValue(
@@ -936,7 +1246,7 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`) VALUES (?)"),
+                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`,`value`,`country`) VALUES (?,?,?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "entities",
@@ -951,6 +1261,12 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                         new AnnotationValue[]{
                            new AnnotationValue(
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
                            )
                         },
                         "resultDataType",
@@ -967,7 +1283,7 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`) VALUES (?)"),
+                     AnnotationUtil.mapOf("value", "INSERT INTO `genre` (`name`,`value`,`country`) VALUES (?,?,?)"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "entities",
@@ -982,6 +1298,12 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                         new AnnotationValue[]{
                            new AnnotationValue(
                               "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "name"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "value"), var0
+                           ),
+                           new AnnotationValue(
+                              "io.micronaut.data.intercept.annotation.DataMethodQueryParameter", AnnotationUtil.mapOf("property", "country"), var0
                            )
                         },
                         "resultDataType",
@@ -1045,7 +1367,9 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_ WHERE (genre_.`id` = ?)"),
+                     AnnotationUtil.mapOf(
+                        "value", "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_ WHERE (genre_.`id` = ?)"
+                     ),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
@@ -1076,7 +1400,9 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_ WHERE (genre_.`id` = ?)"),
+                     AnnotationUtil.mapOf(
+                        "value", "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_ WHERE (genre_.`id` = ?)"
+                     ),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
@@ -1251,13 +1577,13 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_"),
+                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_6()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_7()},
                         "opType",
                         DataMethod.OperationType.QUERY,
                         "resultDataType",
@@ -1274,13 +1600,13 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                   Collections.EMPTY_MAP,
                   AnnotationUtil.mapOf(
                      "io.micronaut.data.annotation.Query",
-                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name` FROM `genre` genre_"),
+                     AnnotationUtil.mapOf("value", "SELECT genre_.`id`,genre_.`name`,genre_.`value`,genre_.`country` FROM `genre` genre_"),
                      "io.micronaut.data.intercept.annotation.DataMethod",
                      AnnotationUtil.mapOf(
                         "idType",
                         "java.lang.Long",
                         "interceptor",
-                        new AnnotationClassValue[]{$micronaut_load_class_value_6()},
+                        new AnnotationClassValue[]{$micronaut_load_class_value_7()},
                         "opType",
                         DataMethod.OperationType.QUERY,
                         "resultDataType",
@@ -1723,45 +2049,49 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
    protected final Object dispatch(int var1, Object var2, Object[] var3) {
       switch(var1) {
          case 0:
-            return ((GenreRepository)var2).save((String)var3[0]);
+            return ((GenreRepository)var2).save((String)var3[0], var3[1], (String)var3[2]);
          case 1:
             if (this.$interceptable && var2 instanceof GenreRepository$Intercepted) {
-               return ((GenreRepository$Intercepted)var2).$$access$$saveWithException((String)var3[0]);
+               return ((GenreRepository$Intercepted)var2).$$access$$saveWithException((String)var3[0], var3[1], (String)var3[2]);
             }
 
-            return ((GenreRepository)var2).saveWithException((String)var3[0]);
+            return ((GenreRepository)var2).saveWithException((String)var3[0], var3[1], (String)var3[2]);
          case 2:
             return ((GenreRepository)var2).update((Long)var3[0], (String)var3[1]);
          case 3:
-            return ((PageableRepository)var2).findAll((Sort)var3[0]);
+            return ((GenreRepository)var2).update((Long)var3[0], var3[1]);
          case 4:
-            return ((PageableRepository)var2).findAll((Pageable)var3[0]);
+            return ((GenreRepository)var2).update((Long)var3[0], (String)var3[1], var3[2]);
          case 5:
-            return ((CrudRepository)var2).save(var3[0]);
+            return ((GenreRepository)var2).update((Genre)var3[0]);
          case 6:
-            return ((CrudRepository)var2).update(var3[0]);
+            return ((PageableRepository)var2).findAll((Sort)var3[0]);
          case 7:
-            return ((CrudRepository)var2).updateAll((Iterable)var3[0]);
+            return ((PageableRepository)var2).findAll((Pageable)var3[0]);
          case 8:
-            return ((CrudRepository)var2).saveAll((Iterable)var3[0]);
+            return ((CrudRepository)var2).save(var3[0]);
          case 9:
-            return ((CrudRepository)var2).findById(var3[0]);
+            return ((CrudRepository)var2).updateAll((Iterable)var3[0]);
          case 10:
-            return ((CrudRepository)var2).existsById(var3[0]);
+            return ((CrudRepository)var2).saveAll((Iterable)var3[0]);
          case 11:
-            return ((CrudRepository)var2).findAll();
+            return ((CrudRepository)var2).findById(var3[0]);
          case 12:
-            return ((CrudRepository)var2).count();
+            return ((CrudRepository)var2).existsById(var3[0]);
          case 13:
+            return ((CrudRepository)var2).findAll();
+         case 14:
+            return ((CrudRepository)var2).count();
+         case 15:
             ((CrudRepository)var2).deleteById(var3[0]);
             return null;
-         case 14:
+         case 16:
             ((CrudRepository)var2).delete(var3[0]);
             return null;
-         case 15:
+         case 17:
             ((CrudRepository)var2).deleteAll((Iterable)var3[0]);
             return null;
-         case 16:
+         case 18:
             ((CrudRepository)var2).deleteAll();
             return null;
          default:
@@ -1773,38 +2103,42 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
    protected final Method getTargetMethodByIndex(int var1) {
       switch(var1) {
          case 0:
-            return ReflectionUtils.getRequiredMethod(GenreRepository.class, "save", String.class);
+            return ReflectionUtils.getRequiredMethod(GenreRepository.class, "save", String.class, Double.TYPE, String.class);
          case 1:
-            return ReflectionUtils.getRequiredMethod(GenreRepository.class, "saveWithException", String.class);
+            return ReflectionUtils.getRequiredMethod(GenreRepository.class, "saveWithException", String.class, Double.TYPE, String.class);
          case 2:
             return ReflectionUtils.getRequiredMethod(GenreRepository.class, "update", Long.class, String.class);
          case 3:
-            return ReflectionUtils.getRequiredMethod(PageableRepository.class, "findAll", Sort.class);
+            return ReflectionUtils.getRequiredMethod(GenreRepository.class, "update", Long.class, Double.TYPE);
          case 4:
-            return ReflectionUtils.getRequiredMethod(PageableRepository.class, "findAll", Pageable.class);
+            return ReflectionUtils.getRequiredMethod(GenreRepository.class, "update", Long.class, String.class, Double.TYPE);
          case 5:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "save", Object.class);
+            return ReflectionUtils.getRequiredMethod(GenreRepository.class, "update", Genre.class);
          case 6:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "update", Object.class);
+            return ReflectionUtils.getRequiredMethod(PageableRepository.class, "findAll", Sort.class);
          case 7:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "updateAll", Iterable.class);
+            return ReflectionUtils.getRequiredMethod(PageableRepository.class, "findAll", Pageable.class);
          case 8:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "saveAll", Iterable.class);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "save", Object.class);
          case 9:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "findById", Object.class);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "updateAll", Iterable.class);
          case 10:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "existsById", Object.class);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "saveAll", Iterable.class);
          case 11:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "findAll", ReflectionUtils.EMPTY_CLASS_ARRAY);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "findById", Object.class);
          case 12:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "count", ReflectionUtils.EMPTY_CLASS_ARRAY);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "existsById", Object.class);
          case 13:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "deleteById", Object.class);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "findAll", ReflectionUtils.EMPTY_CLASS_ARRAY);
          case 14:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "delete", Object.class);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "count", ReflectionUtils.EMPTY_CLASS_ARRAY);
          case 15:
-            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "deleteAll", Iterable.class);
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "deleteById", Object.class);
          case 16:
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "delete", Object.class);
+         case 17:
+            return ReflectionUtils.getRequiredMethod(CrudRepository.class, "deleteAll", Iterable.class);
+         case 18:
             return ReflectionUtils.getRequiredMethod(CrudRepository.class, "deleteAll", ReflectionUtils.EMPTY_CLASS_ARRAY);
          default:
             throw this.unknownDispatchAtIndexException(var1);
@@ -1814,16 +2148,33 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
    private final ExecutableMethod getMethod(String var1, Class[] var2) {
       switch(var1.hashCode()) {
          case -1949226984:
-            if (this.methodAtIndexMatches(7, var1, var2)) {
-               return this.getExecutableMethodByIndex(7);
+            if (this.methodAtIndexMatches(9, var1, var2)) {
+               return this.getExecutableMethodByIndex(9);
             }
             break;
          case -1335458389:
-            if (this.methodAtIndexMatches(14, var1, var2)) {
-               return this.getExecutableMethodByIndex(14);
+            if (this.methodAtIndexMatches(16, var1, var2)) {
+               return this.getExecutableMethodByIndex(16);
             }
             break;
          case -853211864:
+            if (this.methodAtIndexMatches(6, var1, var2)) {
+               return this.getExecutableMethodByIndex(6);
+            }
+
+            if (this.methodAtIndexMatches(7, var1, var2)) {
+               return this.getExecutableMethodByIndex(7);
+            }
+
+            if (this.methodAtIndexMatches(13, var1, var2)) {
+               return this.getExecutableMethodByIndex(13);
+            }
+            break;
+         case -838846263:
+            if (this.methodAtIndexMatches(2, var1, var2)) {
+               return this.getExecutableMethodByIndex(2);
+            }
+
             if (this.methodAtIndexMatches(3, var1, var2)) {
                return this.getExecutableMethodByIndex(3);
             }
@@ -1832,31 +2183,22 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                return this.getExecutableMethodByIndex(4);
             }
 
+            if (this.methodAtIndexMatches(5, var1, var2)) {
+               return this.getExecutableMethodByIndex(5);
+            }
+            break;
+         case -679722709:
             if (this.methodAtIndexMatches(11, var1, var2)) {
                return this.getExecutableMethodByIndex(11);
             }
             break;
-         case -838846263:
-            if (this.methodAtIndexMatches(2, var1, var2)) {
-               return this.getExecutableMethodByIndex(2);
-            }
-
-            if (this.methodAtIndexMatches(6, var1, var2)) {
-               return this.getExecutableMethodByIndex(6);
-            }
-            break;
-         case -679722709:
-            if (this.methodAtIndexMatches(9, var1, var2)) {
-               return this.getExecutableMethodByIndex(9);
-            }
-            break;
          case -358737930:
-            if (this.methodAtIndexMatches(15, var1, var2)) {
-               return this.getExecutableMethodByIndex(15);
+            if (this.methodAtIndexMatches(17, var1, var2)) {
+               return this.getExecutableMethodByIndex(17);
             }
 
-            if (this.methodAtIndexMatches(16, var1, var2)) {
-               return this.getExecutableMethodByIndex(16);
+            if (this.methodAtIndexMatches(18, var1, var2)) {
+               return this.getExecutableMethodByIndex(18);
             }
             break;
          case -137085012:
@@ -1869,28 +2211,28 @@ final class $GenreRepository$Intercepted$Definition$Exec extends AbstractExecuta
                return this.getExecutableMethodByIndex(0);
             }
 
-            if (this.methodAtIndexMatches(5, var1, var2)) {
-               return this.getExecutableMethodByIndex(5);
+            if (this.methodAtIndexMatches(8, var1, var2)) {
+               return this.getExecutableMethodByIndex(8);
             }
             break;
          case 94851343:
+            if (this.methodAtIndexMatches(14, var1, var2)) {
+               return this.getExecutableMethodByIndex(14);
+            }
+            break;
+         case 205272654:
             if (this.methodAtIndexMatches(12, var1, var2)) {
                return this.getExecutableMethodByIndex(12);
             }
             break;
-         case 205272654:
-            if (this.methodAtIndexMatches(10, var1, var2)) {
-               return this.getExecutableMethodByIndex(10);
-            }
-            break;
          case 1764067357:
-            if (this.methodAtIndexMatches(13, var1, var2)) {
-               return this.getExecutableMethodByIndex(13);
+            if (this.methodAtIndexMatches(15, var1, var2)) {
+               return this.getExecutableMethodByIndex(15);
             }
             break;
          case 1872786148:
-            if (this.methodAtIndexMatches(8, var1, var2)) {
-               return this.getExecutableMethodByIndex(8);
+            if (this.methodAtIndexMatches(10, var1, var2)) {
+               return this.getExecutableMethodByIndex(10);
             }
       }
 

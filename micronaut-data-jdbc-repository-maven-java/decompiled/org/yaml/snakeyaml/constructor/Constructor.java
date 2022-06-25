@@ -385,7 +385,7 @@ public class Constructor extends SafeConstructor {
                contr.construct(node);
                result = contr.getCalendar();
             } else if (Number.class.isAssignableFrom(type)) {
-               SafeConstructor.ConstructYamlFloat contr = Constructor.this.new ConstructYamlFloat(Constructor.this);
+               SafeConstructor.ConstructYamlFloat contr = Constructor.this.new ConstructYamlFloat();
                result = contr.construct(node);
             } else if (UUID.class == type) {
                result = UUID.fromString(node.getValue());

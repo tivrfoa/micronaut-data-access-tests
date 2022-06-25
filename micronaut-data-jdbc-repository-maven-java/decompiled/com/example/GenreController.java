@@ -34,10 +34,16 @@ public class GenreController {
       return this.genreRepository.findById(id);
    }
 
-   @Put
+   @Put("/name")
    public HttpResponse update(@Body @Valid GenreUpdateCommand command) {
       this.genreRepository.update(command.getId(), command.getName());
       return HttpResponse.noContent().header("Location", this.location(command.getId()).getPath());
+   }
+
+   @Put
+   public HttpResponse<Genre> update(@Body @Valid Genre genre) {
+      Genre updatedGenre = this.genreRepository.update(genre);
+      return HttpResponse.ok(updatedGenre).header("Location", this.location(genre.getId()).getPath());
    }
 
    @Get("/list")
@@ -45,16 +51,22 @@ public class GenreController {
       return this.genreRepository.findAll(pageable).getContent();
    }
 
-   @Post
+   @Post("/name")
    public HttpResponse<Genre> save(@Body("name") @NotBlank String name) {
-      Genre genre = this.genreRepository.save(name);
+      Genre genre = this.genreRepository.save(name, 0.0, "");
       return HttpResponse.created(genre).headers((Consumer<MutableHttpHeaders>)(headers -> headers.location(this.location(genre.getId()))));
+   }
+
+   @Post
+   public HttpResponse<Genre> save(@Body Genre genre) {
+      Genre newGenre = this.genreRepository.save(genre.getName(), genre.getValue(), genre.getCountry());
+      return HttpResponse.created(newGenre).headers((Consumer<MutableHttpHeaders>)(headers -> headers.location(this.location(genre.getId()))));
    }
 
    @Post("/ex")
    public HttpResponse<Genre> saveExceptions(@Body @NotBlank String name) {
       try {
-         Genre genre = this.genreRepository.saveWithException(name);
+         Genre genre = this.genreRepository.saveWithException(name, 0.0, "");
          return HttpResponse.created(genre).headers((Consumer<MutableHttpHeaders>)(headers -> headers.location(this.location(genre.getId()))));
       } catch (DataAccessException var3) {
          return HttpResponse.noContent();

@@ -102,6 +102,126 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                         }
                      ),
                      "io.micronaut.http.annotation.Put",
+                     AnnotationUtil.mapOf("value", "/name"),
+                     "io.micronaut.validation.Validated",
+                     Collections.EMPTY_MAP
+                  ),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.aop.Around",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.context.annotation.Executable",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.context.annotation.Type",
+                     AnnotationUtil.mapOf("value", new AnnotationClassValue[]{$micronaut_load_class_value_0()}),
+                     "io.micronaut.core.annotation.EntryPoint",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     AnnotationUtil.mapOf("value", "/name"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     AnnotationUtil.mapOf("value", "/name")
+                  ),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.aop.Around",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.context.annotation.Executable",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.context.annotation.Type",
+                     AnnotationUtil.mapOf("value", new AnnotationClassValue[]{$micronaut_load_class_value_0()}),
+                     "io.micronaut.core.annotation.EntryPoint",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     AnnotationUtil.mapOf("value", "/name"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     AnnotationUtil.mapOf("value", "/name")
+                  ),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.aop.InterceptorBindingDefinitions",
+                     AnnotationUtil.mapOf(
+                        "value",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.aop.InterceptorBinding",
+                              AnnotationUtil.mapOf(
+                                 "interceptorType",
+                                 new AnnotationClassValue[]{$micronaut_load_class_value_0()},
+                                 "kind",
+                                 "AROUND",
+                                 "value",
+                                 new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                              ),
+                              var0
+                           )
+                        }
+                     ),
+                     "io.micronaut.http.annotation.Put",
+                     AnnotationUtil.mapOf("value", "/name"),
+                     "io.micronaut.validation.Validated",
+                     Collections.EMPTY_MAP
+                  ),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.aop.Around",
+                     AnnotationUtil.internListOf("io.micronaut.validation.Validated"),
+                     "io.micronaut.context.annotation.Executable",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.HttpMethodMapping"),
+                     "io.micronaut.context.annotation.Type",
+                     AnnotationUtil.internListOf("io.micronaut.validation.Validated"),
+                     "io.micronaut.core.annotation.EntryPoint",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.HttpMethodMapping"),
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.Put"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     Collections.EMPTY_LIST
+                  ),
+                  false,
+                  true
+               )
+            ),
+            "update",
+            Argument.of(HttpResponse.class, "io.micronaut.http.HttpResponse", null, Argument.ofTypeVariable(Object.class, "B")),
+            new Argument[]{
+               Argument.of(
+                  GenreUpdateCommand.class,
+                  "command",
+                  new DefaultAnnotationMetadata(
+                     AnnotationUtil.mapOf("io.micronaut.http.annotation.Body", Collections.EMPTY_MAP, "javax.validation.Valid", Collections.EMPTY_MAP),
+                     AnnotationUtil.internMapOf("io.micronaut.core.bind.annotation.Bindable", Collections.EMPTY_MAP),
+                     AnnotationUtil.internMapOf("io.micronaut.core.bind.annotation.Bindable", Collections.EMPTY_MAP),
+                     AnnotationUtil.mapOf("io.micronaut.http.annotation.Body", Collections.EMPTY_MAP, "javax.validation.Valid", Collections.EMPTY_MAP),
+                     AnnotationUtil.mapOf("io.micronaut.core.bind.annotation.Bindable", AnnotationUtil.internListOf("io.micronaut.http.annotation.Body")),
+                     false,
+                     true
+                  ),
+                  null
+               )
+            },
+            false,
+            false
+         ),
+         new AbstractExecutableMethodsDefinition.MethodReference(
+            GenreController.class,
+            new AnnotationMetadataHierarchy(
+               $GenreController$Definition$Reference.$ANNOTATION_METADATA,
+               new DefaultAnnotationMetadata(
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.aop.InterceptorBindingDefinitions",
+                     AnnotationUtil.mapOf(
+                        "value",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.aop.InterceptorBinding",
+                              AnnotationUtil.mapOf(
+                                 "interceptorType",
+                                 new AnnotationClassValue[]{$micronaut_load_class_value_0()},
+                                 "kind",
+                                 "AROUND",
+                                 "value",
+                                 new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                              ),
+                              var0
+                           )
+                        }
+                     ),
+                     "io.micronaut.http.annotation.Put",
                      Collections.EMPTY_MAP,
                      "io.micronaut.validation.Validated",
                      Collections.EMPTY_MAP
@@ -171,11 +291,11 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                )
             ),
             "update",
-            Argument.of(HttpResponse.class, "io.micronaut.http.HttpResponse", null, Argument.ofTypeVariable(Object.class, "B")),
+            Argument.of(HttpResponse.class, "io.micronaut.http.HttpResponse", null, Argument.ofTypeVariable(Genre.class, "B")),
             new Argument[]{
                Argument.of(
-                  GenreUpdateCommand.class,
-                  "command",
+                  Genre.class,
+                  "genre",
                   new DefaultAnnotationMetadata(
                      AnnotationUtil.mapOf("io.micronaut.http.annotation.Body", Collections.EMPTY_MAP, "javax.validation.Valid", Collections.EMPTY_MAP),
                      AnnotationUtil.internMapOf("io.micronaut.core.bind.annotation.Bindable", Collections.EMPTY_MAP),
@@ -336,7 +456,7 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                         }
                      ),
                      "io.micronaut.http.annotation.Post",
-                     Collections.EMPTY_MAP,
+                     AnnotationUtil.mapOf("value", "/name"),
                      "io.micronaut.validation.Validated",
                      Collections.EMPTY_MAP
                   ),
@@ -350,7 +470,9 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                      "io.micronaut.core.annotation.EntryPoint",
                      Collections.EMPTY_MAP,
                      "io.micronaut.http.annotation.HttpMethodMapping",
-                     Collections.EMPTY_MAP
+                     AnnotationUtil.mapOf("value", "/name"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     AnnotationUtil.mapOf("value", "/name")
                   ),
                   AnnotationUtil.mapOf(
                      "io.micronaut.aop.Around",
@@ -362,7 +484,9 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                      "io.micronaut.core.annotation.EntryPoint",
                      Collections.EMPTY_MAP,
                      "io.micronaut.http.annotation.HttpMethodMapping",
-                     Collections.EMPTY_MAP
+                     AnnotationUtil.mapOf("value", "/name"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     AnnotationUtil.mapOf("value", "/name")
                   ),
                   AnnotationUtil.mapOf(
                      "io.micronaut.aop.InterceptorBindingDefinitions",
@@ -384,7 +508,7 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                         }
                      ),
                      "io.micronaut.http.annotation.Post",
-                     Collections.EMPTY_MAP,
+                     AnnotationUtil.mapOf("value", "/name"),
                      "io.micronaut.validation.Validated",
                      Collections.EMPTY_MAP
                   ),
@@ -398,7 +522,9 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                      "io.micronaut.core.annotation.EntryPoint",
                      AnnotationUtil.internListOf("io.micronaut.http.annotation.HttpMethodMapping"),
                      "io.micronaut.http.annotation.HttpMethodMapping",
-                     AnnotationUtil.internListOf("io.micronaut.http.annotation.Post")
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.Post"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     Collections.EMPTY_LIST
                   ),
                   false,
                   true
@@ -452,6 +578,62 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
                         "javax.validation.Constraint",
                         AnnotationUtil.internListOf("javax.validation.constraints.NotBlank")
                      ),
+                     false,
+                     true
+                  ),
+                  null
+               )
+            },
+            false,
+            false
+         ),
+         new AbstractExecutableMethodsDefinition.MethodReference(
+            GenreController.class,
+            new AnnotationMetadataHierarchy(
+               $GenreController$Definition$Reference.$ANNOTATION_METADATA,
+               new DefaultAnnotationMetadata(
+                  AnnotationUtil.internMapOf("io.micronaut.http.annotation.Post", Collections.EMPTY_MAP),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.context.annotation.Executable",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.core.annotation.EntryPoint",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     Collections.EMPTY_MAP
+                  ),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.context.annotation.Executable",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.core.annotation.EntryPoint",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     Collections.EMPTY_MAP
+                  ),
+                  AnnotationUtil.internMapOf("io.micronaut.http.annotation.Post", Collections.EMPTY_MAP),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.context.annotation.Executable",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.HttpMethodMapping"),
+                     "io.micronaut.core.annotation.EntryPoint",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.HttpMethodMapping"),
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.Post")
+                  ),
+                  false,
+                  true
+               )
+            ),
+            "save",
+            Argument.of(HttpResponse.class, "io.micronaut.http.HttpResponse", null, Argument.ofTypeVariable(Genre.class, "B")),
+            new Argument[]{
+               Argument.of(
+                  Genre.class,
+                  "genre",
+                  new DefaultAnnotationMetadata(
+                     AnnotationUtil.internMapOf("io.micronaut.http.annotation.Body", Collections.EMPTY_MAP),
+                     AnnotationUtil.internMapOf("io.micronaut.core.bind.annotation.Bindable", Collections.EMPTY_MAP),
+                     AnnotationUtil.internMapOf("io.micronaut.core.bind.annotation.Bindable", Collections.EMPTY_MAP),
+                     AnnotationUtil.internMapOf("io.micronaut.http.annotation.Body", Collections.EMPTY_MAP),
+                     AnnotationUtil.mapOf("io.micronaut.core.bind.annotation.Bindable", AnnotationUtil.internListOf("io.micronaut.http.annotation.Body")),
                      false,
                      true
                   ),
@@ -692,23 +874,31 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
             return ((GenreController)var2).update((GenreUpdateCommand)var3[0]);
          case 2:
             if (this.$interceptable && var2 instanceof $GenreController$Definition$Intercepted) {
+               return (($GenreController$Definition$Intercepted)var2).$$access$$update((Genre)var3[0]);
+            }
+
+            return ((GenreController)var2).update((Genre)var3[0]);
+         case 3:
+            if (this.$interceptable && var2 instanceof $GenreController$Definition$Intercepted) {
                return (($GenreController$Definition$Intercepted)var2).$$access$$list((Pageable)var3[0]);
             }
 
             return ((GenreController)var2).list((Pageable)var3[0]);
-         case 3:
+         case 4:
             if (this.$interceptable && var2 instanceof $GenreController$Definition$Intercepted) {
                return (($GenreController$Definition$Intercepted)var2).$$access$$save((String)var3[0]);
             }
 
             return ((GenreController)var2).save((String)var3[0]);
-         case 4:
+         case 5:
+            return ((GenreController)var2).save((Genre)var3[0]);
+         case 6:
             if (this.$interceptable && var2 instanceof $GenreController$Definition$Intercepted) {
                return (($GenreController$Definition$Intercepted)var2).$$access$$saveExceptions((String)var3[0]);
             }
 
             return ((GenreController)var2).saveExceptions((String)var3[0]);
-         case 5:
+         case 7:
             ((GenreController)var2).delete((Long)var3[0]);
             return null;
          default:
@@ -724,12 +914,16 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
          case 1:
             return ReflectionUtils.getRequiredMethod(GenreController.class, "update", GenreUpdateCommand.class);
          case 2:
-            return ReflectionUtils.getRequiredMethod(GenreController.class, "list", Pageable.class);
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "update", Genre.class);
          case 3:
-            return ReflectionUtils.getRequiredMethod(GenreController.class, "save", String.class);
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "list", Pageable.class);
          case 4:
-            return ReflectionUtils.getRequiredMethod(GenreController.class, "saveExceptions", String.class);
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "save", String.class);
          case 5:
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "save", Genre.class);
+         case 6:
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "saveExceptions", String.class);
+         case 7:
             return ReflectionUtils.getRequiredMethod(GenreController.class, "delete", Long.class);
          default:
             throw this.unknownDispatchAtIndexException(var1);
@@ -739,23 +933,31 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
    private final ExecutableMethod getMethod(String var1, Class[] var2) {
       switch(var1.hashCode()) {
          case -1335458389:
-            if (this.methodAtIndexMatches(5, var1, var2)) {
-               return this.getExecutableMethodByIndex(5);
+            if (this.methodAtIndexMatches(7, var1, var2)) {
+               return this.getExecutableMethodByIndex(7);
             }
             break;
          case -838846263:
             if (this.methodAtIndexMatches(1, var1, var2)) {
                return this.getExecutableMethodByIndex(1);
             }
-            break;
-         case 3322014:
+
             if (this.methodAtIndexMatches(2, var1, var2)) {
                return this.getExecutableMethodByIndex(2);
             }
             break;
-         case 3522941:
+         case 3322014:
             if (this.methodAtIndexMatches(3, var1, var2)) {
                return this.getExecutableMethodByIndex(3);
+            }
+            break;
+         case 3522941:
+            if (this.methodAtIndexMatches(4, var1, var2)) {
+               return this.getExecutableMethodByIndex(4);
+            }
+
+            if (this.methodAtIndexMatches(5, var1, var2)) {
+               return this.getExecutableMethodByIndex(5);
             }
             break;
          case 3529469:
@@ -764,8 +966,8 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
             }
             break;
          case 1222631265:
-            if (this.methodAtIndexMatches(4, var1, var2)) {
-               return this.getExecutableMethodByIndex(4);
+            if (this.methodAtIndexMatches(6, var1, var2)) {
+               return this.getExecutableMethodByIndex(6);
             }
       }
 

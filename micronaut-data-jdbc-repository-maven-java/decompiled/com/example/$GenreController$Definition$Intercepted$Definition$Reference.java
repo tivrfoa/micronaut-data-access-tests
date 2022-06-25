@@ -170,7 +170,9 @@ public final class $GenreController$Definition$Intercepted$Definition$Reference 
             "io.micronaut.aop.InterceptorBinding",
             "io.micronaut.aop.InterceptorBindingDefinitions",
             "javax.validation.constraints.NotBlank",
-            "javax.validation.constraints.NotBlank$List"
+            "javax.validation.constraints.NotBlank$List",
+            "javax.validation.constraints.NotNull",
+            "javax.validation.constraints.NotNull$List"
          )
       );
    }

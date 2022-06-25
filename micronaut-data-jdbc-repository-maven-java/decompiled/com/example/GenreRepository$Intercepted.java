@@ -19,22 +19,22 @@ import java.util.Optional;
 @Generated
 class GenreRepository$Intercepted implements GenreRepository, Introduced {
    private final Interceptor[][] $interceptors;
-   private final ExecutableMethod[] $proxyMethods = new ExecutableMethod[17];
+   private final ExecutableMethod[] $proxyMethods = new ExecutableMethod[19];
 
    @Override
-   public Genre save(String var1) {
-      ExecutableMethod var2 = this.$proxyMethods[0];
-      Interceptor[] var3 = this.$interceptors[0];
-      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
-      return (Genre)var4.proceed();
+   public Genre save(String var1, double var2, String var4) {
+      ExecutableMethod var5 = this.$proxyMethods[0];
+      Interceptor[] var6 = this.$interceptors[0];
+      MethodInterceptorChain var7 = new MethodInterceptorChain<>(var6, this, var5, var1, var2, var4);
+      return (Genre)var7.proceed();
    }
 
    @Override
-   public Genre saveWithException(String var1) {
-      ExecutableMethod var2 = this.$proxyMethods[1];
-      Interceptor[] var3 = this.$interceptors[1];
-      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
-      return (Genre)var4.proceed();
+   public Genre saveWithException(String var1, double var2, String var4) {
+      ExecutableMethod var5 = this.$proxyMethods[1];
+      Interceptor[] var6 = this.$interceptors[1];
+      MethodInterceptorChain var7 = new MethodInterceptorChain<>(var6, this, var5, var1, var2, var4);
+      return (Genre)var7.proceed();
    }
 
    @Override
@@ -46,103 +46,108 @@ class GenreRepository$Intercepted implements GenreRepository, Introduced {
    }
 
    @Override
+   public long update(Long var1, double var2) {
+      ExecutableMethod var4 = this.$proxyMethods[3];
+      Interceptor[] var5 = this.$interceptors[3];
+      MethodInterceptorChain var6 = new MethodInterceptorChain<>(var5, this, var4, var1, var2);
+      return var6.proceed();
+   }
+
+   @Override
+   public long update(Long var1, String var2, double var3) {
+      ExecutableMethod var5 = this.$proxyMethods[4];
+      Interceptor[] var6 = this.$interceptors[4];
+      MethodInterceptorChain var7 = new MethodInterceptorChain<>(var6, this, var5, var1, var2, var3);
+      return var7.proceed();
+   }
+
+   @Override
+   public Genre update(Genre var1) {
+      ExecutableMethod var2 = this.$proxyMethods[5];
+      Interceptor[] var3 = this.$interceptors[5];
+      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
+      return (Genre)var4.proceed();
+   }
+
+   @Override
    public Iterable findAll(Sort var1) {
-      ExecutableMethod var2 = this.$proxyMethods[3];
-      Interceptor[] var3 = this.$interceptors[3];
+      ExecutableMethod var2 = this.$proxyMethods[6];
+      Interceptor[] var3 = this.$interceptors[6];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
       return (Iterable)var4.proceed();
    }
 
    @Override
    public Page findAll(Pageable var1) {
-      ExecutableMethod var2 = this.$proxyMethods[4];
-      Interceptor[] var3 = this.$interceptors[4];
+      ExecutableMethod var2 = this.$proxyMethods[7];
+      Interceptor[] var3 = this.$interceptors[7];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
       return (Page)var4.proceed();
    }
 
    @Override
    public Object save(Object var1) {
-      ExecutableMethod var2 = this.$proxyMethods[5];
-      Interceptor[] var3 = this.$interceptors[5];
+      ExecutableMethod var2 = this.$proxyMethods[8];
+      Interceptor[] var3 = this.$interceptors[8];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
       return var4.proceed();
    }
 
    @Override
    public Object update(Object var1) {
-      ExecutableMethod var2 = this.$proxyMethods[6];
-      Interceptor[] var3 = this.$interceptors[6];
-      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
-      return var4.proceed();
+      return this.update((Genre)var1);
    }
 
    @Override
    public Iterable updateAll(Iterable var1) {
-      ExecutableMethod var2 = this.$proxyMethods[7];
-      Interceptor[] var3 = this.$interceptors[7];
+      ExecutableMethod var2 = this.$proxyMethods[9];
+      Interceptor[] var3 = this.$interceptors[9];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
       return (Iterable)var4.proceed();
    }
 
    @Override
    public Iterable saveAll(Iterable var1) {
-      ExecutableMethod var2 = this.$proxyMethods[8];
-      Interceptor[] var3 = this.$interceptors[8];
+      ExecutableMethod var2 = this.$proxyMethods[10];
+      Interceptor[] var3 = this.$interceptors[10];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
       return (Iterable)var4.proceed();
    }
 
    @Override
    public Optional findById(Object var1) {
-      ExecutableMethod var2 = this.$proxyMethods[9];
-      Interceptor[] var3 = this.$interceptors[9];
+      ExecutableMethod var2 = this.$proxyMethods[11];
+      Interceptor[] var3 = this.$interceptors[11];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
       return (Optional)var4.proceed();
    }
 
    @Override
    public boolean existsById(Object var1) {
-      ExecutableMethod var2 = this.$proxyMethods[10];
-      Interceptor[] var3 = this.$interceptors[10];
+      ExecutableMethod var2 = this.$proxyMethods[12];
+      Interceptor[] var3 = this.$interceptors[12];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
       return var4.proceed();
    }
 
    @Override
    public Iterable findAll() {
-      ExecutableMethod var1 = this.$proxyMethods[11];
-      Interceptor[] var2 = this.$interceptors[11];
+      ExecutableMethod var1 = this.$proxyMethods[13];
+      Interceptor[] var2 = this.$interceptors[13];
       MethodInterceptorChain var3 = new MethodInterceptorChain<>(var2, this, var1);
       return (Iterable)var3.proceed();
    }
 
    @Override
    public long count() {
-      ExecutableMethod var1 = this.$proxyMethods[12];
-      Interceptor[] var2 = this.$interceptors[12];
+      ExecutableMethod var1 = this.$proxyMethods[14];
+      Interceptor[] var2 = this.$interceptors[14];
       MethodInterceptorChain var3 = new MethodInterceptorChain<>(var2, this, var1);
       return var3.proceed();
    }
 
    @Override
    public void deleteById(Object var1) {
-      ExecutableMethod var2 = this.$proxyMethods[13];
-      Interceptor[] var3 = this.$interceptors[13];
-      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
-      var4.proceed();
-   }
-
-   @Override
-   public void delete(Object var1) {
-      ExecutableMethod var2 = this.$proxyMethods[14];
-      Interceptor[] var3 = this.$interceptors[14];
-      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
-      var4.proceed();
-   }
-
-   @Override
-   public void deleteAll(Iterable var1) {
       ExecutableMethod var2 = this.$proxyMethods[15];
       Interceptor[] var3 = this.$interceptors[15];
       MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
@@ -150,15 +155,31 @@ class GenreRepository$Intercepted implements GenreRepository, Introduced {
    }
 
    @Override
+   public void delete(Object var1) {
+      ExecutableMethod var2 = this.$proxyMethods[16];
+      Interceptor[] var3 = this.$interceptors[16];
+      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
+      var4.proceed();
+   }
+
+   @Override
+   public void deleteAll(Iterable var1) {
+      ExecutableMethod var2 = this.$proxyMethods[17];
+      Interceptor[] var3 = this.$interceptors[17];
+      MethodInterceptorChain var4 = new MethodInterceptorChain<>(var3, this, var2, var1);
+      var4.proceed();
+   }
+
+   @Override
    public void deleteAll() {
-      ExecutableMethod var1 = this.$proxyMethods[16];
-      Interceptor[] var2 = this.$interceptors[16];
+      ExecutableMethod var1 = this.$proxyMethods[18];
+      Interceptor[] var2 = this.$interceptors[18];
       MethodInterceptorChain var3 = new MethodInterceptorChain<>(var2, this, var1);
       var3.proceed();
    }
 
    public GenreRepository$Intercepted(BeanResolutionContext var1, BeanContext var2, Qualifier var3, List var4) {
-      this.$interceptors = new Interceptor[17][];
+      this.$interceptors = new Interceptor[19][];
       $GenreRepository$Intercepted$Definition$Exec var5 = new $GenreRepository$Intercepted$Definition$Exec(true);
       this.$proxyMethods[0] = var5.getExecutableMethodByIndex(0);
       this.$interceptors[0] = InterceptorChain.resolveIntroductionInterceptors(var2, this.$proxyMethods[0], var4);
@@ -194,5 +215,9 @@ class GenreRepository$Intercepted implements GenreRepository, Introduced {
       this.$interceptors[15] = InterceptorChain.resolveIntroductionInterceptors(var2, this.$proxyMethods[15], var4);
       this.$proxyMethods[16] = var5.getExecutableMethodByIndex(16);
       this.$interceptors[16] = InterceptorChain.resolveIntroductionInterceptors(var2, this.$proxyMethods[16], var4);
+      this.$proxyMethods[17] = var5.getExecutableMethodByIndex(17);
+      this.$interceptors[17] = InterceptorChain.resolveIntroductionInterceptors(var2, this.$proxyMethods[17], var4);
+      this.$proxyMethods[18] = var5.getExecutableMethodByIndex(18);
+      this.$interceptors[18] = InterceptorChain.resolveIntroductionInterceptors(var2, this.$proxyMethods[18], var4);
    }
 }

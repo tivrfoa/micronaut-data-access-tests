@@ -79,10 +79,52 @@ final class $Genre$Introspection extends AbstractInitializableBeanIntrospection 
          -1,
          false,
          true
+      ),
+      new AbstractInitializableBeanIntrospection.BeanPropertyRef(
+         Argument.of(
+            Double.TYPE,
+            "value",
+            new DefaultAnnotationMetadata(
+               AnnotationUtil.mapOf("io.micronaut.data.annotation.MappedProperty", AnnotationUtil.mapOf("type", DataType.DOUBLE, "value", "value")),
+               Collections.EMPTY_MAP,
+               Collections.EMPTY_MAP,
+               AnnotationUtil.mapOf("io.micronaut.data.annotation.MappedProperty", AnnotationUtil.mapOf("type", DataType.DOUBLE, "value", "value")),
+               Collections.EMPTY_MAP,
+               false,
+               true
+            ),
+            null
+         ),
+         4,
+         5,
+         -1,
+         false,
+         true
+      ),
+      new AbstractInitializableBeanIntrospection.BeanPropertyRef(
+         Argument.of(
+            String.class,
+            "country",
+            new DefaultAnnotationMetadata(
+               AnnotationUtil.mapOf("io.micronaut.data.annotation.MappedProperty", AnnotationUtil.mapOf("type", DataType.STRING, "value", "country")),
+               Collections.EMPTY_MAP,
+               Collections.EMPTY_MAP,
+               AnnotationUtil.mapOf("io.micronaut.data.annotation.MappedProperty", AnnotationUtil.mapOf("type", DataType.STRING, "value", "country")),
+               Collections.EMPTY_MAP,
+               false,
+               true
+            ),
+            null
+         ),
+         6,
+         7,
+         -1,
+         false,
+         true
       )
    };
    private static final int[] INDEX_1 = new int[]{0};
-   private static final int[] INDEX_2 = new int[]{0, 1};
+   private static final int[] INDEX_2 = new int[]{0, 1, 2, 3};
    private static final int[] INDEX_3 = new int[]{1};
 
    public $Genre$Introspection() {
@@ -102,6 +144,16 @@ final class $Genre$Introspection extends AbstractInitializableBeanIntrospection 
          case 3:
             ((Genre)var2).setName((String)var3);
             return null;
+         case 4:
+            return ((Genre)var2).getValue();
+         case 5:
+            ((Genre)var2).setValue((Double)var3);
+            return null;
+         case 6:
+            return ((Genre)var2).getCountry();
+         case 7:
+            ((Genre)var2).setCountry((String)var3);
+            return null;
          default:
             throw this.unknownDispatchAtIndexException(var1);
       }
@@ -118,6 +170,16 @@ final class $Genre$Introspection extends AbstractInitializableBeanIntrospection 
          case 3373707:
             if (var1.equals("name")) {
                return 1;
+            }
+            break;
+         case 111972721:
+            if (var1.equals("value")) {
+               return 2;
+            }
+            break;
+         case 957831062:
+            if (var1.equals("country")) {
+               return 3;
             }
       }
 
@@ -149,6 +211,16 @@ final class $Genre$Introspection extends AbstractInitializableBeanIntrospection 
                   case 3373707:
                      if (var2.equals("name")) {
                         return this.getPropertyByIndex(1);
+                     }
+                     break;
+                  case 111972721:
+                     if (var2.equals("value")) {
+                        return this.getPropertyByIndex(2);
+                     }
+                     break;
+                  case 957831062:
+                     if (var2.equals("country")) {
+                        return this.getPropertyByIndex(3);
                      }
                }
             }

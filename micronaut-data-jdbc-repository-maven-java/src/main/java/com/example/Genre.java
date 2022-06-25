@@ -16,6 +16,10 @@ public class Genre {
     @NotNull
     private String name;
 
+    private double value;
+
+    private String country;
+
     public Long getId() {
         return id;
     }
@@ -32,11 +36,24 @@ public class Genre {
         this.name = name;
     }
 
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
-        return "Genre{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Genre [id=" + id + ", name=" + name + ", value=" + value + ", country=" + country + "]";
     }
 }

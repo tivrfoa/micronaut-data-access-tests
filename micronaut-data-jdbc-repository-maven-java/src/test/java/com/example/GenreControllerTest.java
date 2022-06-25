@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -42,13 +43,13 @@ public class GenreControllerTest {
 
         List<Long> genreIds = new ArrayList<>();
 
-        HttpRequest<?> request = HttpRequest.POST("/genres", Collections.singletonMap("name", "DevOps")); 
+        HttpRequest<?> request = HttpRequest.POST("/genres", Map.of("name", "DevOps", "country", "Brazil")); 
         HttpResponse<?> response = client.toBlocking().exchange(request);
         genreIds.add(entityId(response));
 
         assertEquals(HttpStatus.CREATED, response.getStatus());
 
-        request = HttpRequest.POST("/genres", Collections.singletonMap("name", "Microservices")); 
+        request = HttpRequest.POST("/genres", Map.of("name", "Microservices", "country", "Brazil")); 
         response = client.toBlocking().exchange(request);
 
         assertEquals(HttpStatus.CREATED, response.getStatus());

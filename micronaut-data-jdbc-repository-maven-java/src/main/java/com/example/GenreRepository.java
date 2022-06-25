@@ -14,13 +14,19 @@ import javax.validation.constraints.NotNull;
 @JdbcRepository(dialect = Dialect.MYSQL) 
 public interface GenreRepository extends PageableRepository<Genre, Long> { 
 
-    Genre save(@NonNull @NotBlank String name);
+    Genre save(@NonNull @NotBlank String name, double value, String country);
 
     @Transactional
-    default Genre saveWithException(@NonNull @NotBlank String name) {
-        save(name);
+    default Genre saveWithException(@NonNull @NotBlank String name, double value, String country) {
+        save(name, value, country);
         throw new DataAccessException("test exception");
     }
 
     long update(@NonNull @NotNull @Id Long id, @NonNull @NotBlank String name);
+
+    long update(@NonNull @NotNull @Id Long id, double value);
+
+    long update(@NonNull @NotNull @Id Long id, @NonNull @NotBlank String name, double value);
+
+    Genre update(Genre genre);
 }

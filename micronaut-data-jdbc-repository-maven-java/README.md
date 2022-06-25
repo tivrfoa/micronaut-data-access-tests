@@ -119,3 +119,91 @@ mysql> select * from genre;
 |  2 | ok    |
 +----+-------+
 ```
+
+## Annotation Processor FTW!!!
+
+```
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project demo: Compilation failure
+[ERROR] /home/lesco/dev/Java/micronaut/data-access/micronaut-data-jdbc-repository-maven-java/src/main/java/com/example/GenreRepository.java:[27,10] Unable to implement Repository method: GenreRepository.update(Long id,double value1). Cannot update non-existent property: value1
+```
+
+## Updating
+
+### Creating some data
+
+```shell
+curl -X "POST" "http://localhost:8080/genres" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{ "name": "music", "value": 10, "country": "Brazil" }'
+```
+
+```shell
+http localhost:8080/genres/list
+```
+
+```json
+[
+    {
+        "country": "Brazil",
+        "id": 1,
+        "name": "music",
+        "value": 10.0
+    }
+]
+```
+
+### Without id
+
+```shell
+curl -X "PUT" "http://localhost:8080/genres" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{ "name": "movie", "value": 3.5 }'
+```
+
+It does nothing, because id is null and there is no record in the database for it.
+
+```txt
+[io-executor-thread-8] DEBUG io.micronaut.data.query - Executing SQL query: UPDATE `genre` SET `name`=?,`value`=?,`country`=? WHERE (`id` = ?)
+[io-executor-thread-8] TRACE io.micronaut.data.query - Binding parameter at position 1 to value movie with data type: STRING
+[io-executor-thread-8] TRACE io.micronaut.data.query - Binding parameter at position 2 to value 3.5 with data type: DOUBLE
+[io-executor-thread-8] TRACE io.micronaut.data.query - Binding parameter at position 3 to value null with data type: STRING
+[io-executor-thread-8] TRACE io.micronaut.data.query - Binding parameter at position 4 to value null with data type: LONG
+```
+
+### With id
+
+```shell
+curl -X "PUT" "http://localhost:8080/genres" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{ "id": 1, "name": "movie", "value": 3.5 }'
+
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'country' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+```
+
+### Update just value
+
+```shell
+curl -X "PUT" "http://localhost:8080/genres" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{ "id": 1, "value": 3.5 }'
+```
+
+```json
+{
+  "message": "Bad Request",
+  "_links": {
+    "self": {
+      "href": "/genres",
+      "templated": false
+    }
+  },
+  "_embedded": {
+    "errors": [
+      {
+        "message": "genre.name: must not be null"
+      }
+    ]
+  }
+}
+```

@@ -12,6 +12,8 @@ public class Genre {
    private Long id;
    @NotNull
    private String name;
+   private double value;
+   private String country;
 
    public Long getId() {
       return this.id;
@@ -29,7 +31,23 @@ public class Genre {
       this.name = name;
    }
 
+   public double getValue() {
+      return this.value;
+   }
+
+   public void setValue(double value) {
+      this.value = value;
+   }
+
+   public String getCountry() {
+      return this.country;
+   }
+
+   public void setCountry(String country) {
+      this.country = country;
+   }
+
    public String toString() {
-      return "Genre{id=" + this.id + ", name='" + this.name + "'}";
+      return "Genre [id=" + this.id + ", name=" + this.name + ", value=" + this.value + ", country=" + this.country + "]";
    }
 }
