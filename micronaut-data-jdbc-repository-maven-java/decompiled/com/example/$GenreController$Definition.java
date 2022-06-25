@@ -13,12 +13,18 @@ import java.util.Optional;
 @Generated
 class $GenreController$Definition extends AbstractInitializableBeanDefinition<GenreController> implements BeanFactory<GenreController> {
    private static final AbstractInitializableBeanDefinition.MethodOrFieldReference $CONSTRUCTOR = new AbstractInitializableBeanDefinition.MethodReference(
-      GenreController.class, "<init>", new Argument[]{Argument.of(GenreRepository.class, "genreRepository")}, null, false
+      GenreController.class,
+      "<init>",
+      new Argument[]{Argument.of(GenreDao.class, "genreDao"), Argument.of(GenreRepository.class, "genreRepository")},
+      null,
+      false
    );
 
    @Override
    public GenreController build(BeanResolutionContext var1, BeanContext var2, BeanDefinition var3) {
-      GenreController var4 = new GenreController((GenreRepository)super.getBeanForConstructorArgument(var1, var2, 0, null));
+      GenreController var4 = new GenreController(
+         (GenreDao)super.getBeanForConstructorArgument(var1, var2, 0, null), (GenreRepository)super.getBeanForConstructorArgument(var1, var2, 1, null)
+      );
       return (GenreController)this.injectBean(var1, var2, var4);
    }
 

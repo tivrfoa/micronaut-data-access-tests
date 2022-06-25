@@ -436,6 +436,53 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
             new AnnotationMetadataHierarchy(
                $GenreController$Definition$Reference.$ANNOTATION_METADATA,
                new DefaultAnnotationMetadata(
+                  AnnotationUtil.mapOf("io.micronaut.http.annotation.Get", AnnotationUtil.mapOf("value", "/listGenres")),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.context.annotation.Executable",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.core.annotation.EntryPoint",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     AnnotationUtil.mapOf("value", "/listGenres"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     AnnotationUtil.mapOf("value", "/listGenres")
+                  ),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.context.annotation.Executable",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.core.annotation.EntryPoint",
+                     Collections.EMPTY_MAP,
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     AnnotationUtil.mapOf("value", "/listGenres"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     AnnotationUtil.mapOf("value", "/listGenres")
+                  ),
+                  AnnotationUtil.mapOf("io.micronaut.http.annotation.Get", AnnotationUtil.mapOf("value", "/listGenres")),
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.context.annotation.Executable",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.HttpMethodMapping"),
+                     "io.micronaut.core.annotation.EntryPoint",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.HttpMethodMapping"),
+                     "io.micronaut.http.annotation.HttpMethodMapping",
+                     AnnotationUtil.internListOf("io.micronaut.http.annotation.Get"),
+                     "io.micronaut.http.annotation.UriMapping",
+                     Collections.EMPTY_LIST
+                  ),
+                  false,
+                  true
+               )
+            ),
+            "list",
+            Argument.of(List.class, "java.util.List", null, Argument.ofTypeVariable(Genre.class, "E")),
+            null,
+            false,
+            false
+         ),
+         new AbstractExecutableMethodsDefinition.MethodReference(
+            GenreController.class,
+            new AnnotationMetadataHierarchy(
+               $GenreController$Definition$Reference.$ANNOTATION_METADATA,
+               new DefaultAnnotationMetadata(
                   AnnotationUtil.mapOf(
                      "io.micronaut.aop.InterceptorBindingDefinitions",
                      AnnotationUtil.mapOf(
@@ -885,20 +932,22 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
 
             return ((GenreController)var2).list((Pageable)var3[0]);
          case 4:
+            return ((GenreController)var2).list();
+         case 5:
             if (this.$interceptable && var2 instanceof $GenreController$Definition$Intercepted) {
                return (($GenreController$Definition$Intercepted)var2).$$access$$save((String)var3[0]);
             }
 
             return ((GenreController)var2).save((String)var3[0]);
-         case 5:
-            return ((GenreController)var2).save((Genre)var3[0]);
          case 6:
+            return ((GenreController)var2).save((Genre)var3[0]);
+         case 7:
             if (this.$interceptable && var2 instanceof $GenreController$Definition$Intercepted) {
                return (($GenreController$Definition$Intercepted)var2).$$access$$saveExceptions((String)var3[0]);
             }
 
             return ((GenreController)var2).saveExceptions((String)var3[0]);
-         case 7:
+         case 8:
             ((GenreController)var2).delete((Long)var3[0]);
             return null;
          default:
@@ -918,12 +967,14 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
          case 3:
             return ReflectionUtils.getRequiredMethod(GenreController.class, "list", Pageable.class);
          case 4:
-            return ReflectionUtils.getRequiredMethod(GenreController.class, "save", String.class);
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "list", ReflectionUtils.EMPTY_CLASS_ARRAY);
          case 5:
-            return ReflectionUtils.getRequiredMethod(GenreController.class, "save", Genre.class);
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "save", String.class);
          case 6:
-            return ReflectionUtils.getRequiredMethod(GenreController.class, "saveExceptions", String.class);
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "save", Genre.class);
          case 7:
+            return ReflectionUtils.getRequiredMethod(GenreController.class, "saveExceptions", String.class);
+         case 8:
             return ReflectionUtils.getRequiredMethod(GenreController.class, "delete", Long.class);
          default:
             throw this.unknownDispatchAtIndexException(var1);
@@ -933,8 +984,8 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
    private final ExecutableMethod getMethod(String var1, Class[] var2) {
       switch(var1.hashCode()) {
          case -1335458389:
-            if (this.methodAtIndexMatches(7, var1, var2)) {
-               return this.getExecutableMethodByIndex(7);
+            if (this.methodAtIndexMatches(8, var1, var2)) {
+               return this.getExecutableMethodByIndex(8);
             }
             break;
          case -838846263:
@@ -950,14 +1001,18 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
             if (this.methodAtIndexMatches(3, var1, var2)) {
                return this.getExecutableMethodByIndex(3);
             }
-            break;
-         case 3522941:
+
             if (this.methodAtIndexMatches(4, var1, var2)) {
                return this.getExecutableMethodByIndex(4);
             }
-
+            break;
+         case 3522941:
             if (this.methodAtIndexMatches(5, var1, var2)) {
                return this.getExecutableMethodByIndex(5);
+            }
+
+            if (this.methodAtIndexMatches(6, var1, var2)) {
+               return this.getExecutableMethodByIndex(6);
             }
             break;
          case 3529469:
@@ -966,8 +1021,8 @@ final class $GenreController$Definition$Exec extends AbstractExecutableMethodsDe
             }
             break;
          case 1222631265:
-            if (this.methodAtIndexMatches(6, var1, var2)) {
-               return this.getExecutableMethodByIndex(6);
+            if (this.methodAtIndexMatches(7, var1, var2)) {
+               return this.getExecutableMethodByIndex(7);
             }
       }
 

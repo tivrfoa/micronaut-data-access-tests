@@ -34,16 +34,17 @@ class $GenreController$Definition$Intercepted$Definition
    @Override
    public $GenreController$Definition$Intercepted build(BeanResolutionContext var1, BeanContext var2, BeanDefinition var3) {
       $GenreController$Definition$Intercepted var4 = new $GenreController$Definition$Intercepted(
-         (GenreRepository)super.getBeanForConstructorArgument(var1, var2, 0, null),
+         (GenreDao)super.getBeanForConstructorArgument(var1, var2, 0, null),
+         (GenreRepository)super.getBeanForConstructorArgument(var1, var2, 1, null),
          var1,
          var2,
-         (Qualifier)super.getBeanForConstructorArgument(var1, var2, 3, null),
+         (Qualifier)super.getBeanForConstructorArgument(var1, var2, 4, null),
          super.getBeanRegistrationsForConstructorArgument(
             var1,
             var2,
-            4,
-            ((AbstractInitializableBeanDefinition.MethodReference)$CONSTRUCTOR).arguments[4].getTypeParameters()[0].getTypeParameters()[0],
-            Qualifiers.byInterceptorBinding(((AbstractInitializableBeanDefinition.MethodReference)$CONSTRUCTOR).arguments[4].getAnnotationMetadata())
+            5,
+            ((AbstractInitializableBeanDefinition.MethodReference)$CONSTRUCTOR).arguments[5].getTypeParameters()[0].getTypeParameters()[0],
+            Qualifiers.byInterceptorBinding(((AbstractInitializableBeanDefinition.MethodReference)$CONSTRUCTOR).arguments[5].getAnnotationMetadata())
          )
       );
       return ($GenreController$Definition$Intercepted)this.injectBean(var1, var2, var4);
@@ -65,6 +66,7 @@ class $GenreController$Definition$Intercepted$Definition
          $GenreController$Definition$Intercepted.class,
          "<init>",
          new Argument[]{
+            Argument.of(GenreDao.class, "genreDao"),
             Argument.of(GenreRepository.class, "genreRepository"),
             Argument.of(BeanResolutionContext.class, "$beanResolutionContext"),
             Argument.of(BeanContext.class, "$beanContext"),

@@ -23,9 +23,11 @@ import javax.validation.constraints.NotBlank;
 @ExecuteOn("io")
 @Controller("/genres")
 public class GenreController {
+   protected final GenreDao genreDao;
    protected final GenreRepository genreRepository;
 
-   public GenreController(GenreRepository genreRepository) {
+   public GenreController(GenreDao genreDao, GenreRepository genreRepository) {
+      this.genreDao = genreDao;
       this.genreRepository = genreRepository;
    }
 
@@ -49,6 +51,11 @@ public class GenreController {
    @Get("/list")
    public List<Genre> list(@Valid Pageable pageable) {
       return this.genreRepository.findAll(pageable).getContent();
+   }
+
+   @Get("/listGenres")
+   public List<Genre> list() {
+      return this.genreDao.listGenres();
    }
 
    @Post("/name")

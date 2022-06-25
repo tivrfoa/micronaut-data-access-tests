@@ -59,19 +59,19 @@ class $GenreController$Definition$Intercepted extends GenreController implements
       return (HttpResponse)var4.proceed();
    }
 
-   public $GenreController$Definition$Intercepted(GenreRepository var1, BeanResolutionContext var2, BeanContext var3, Qualifier var4, List var5) {
-      super(var1);
+   public $GenreController$Definition$Intercepted(GenreDao var1, GenreRepository var2, BeanResolutionContext var3, BeanContext var4, Qualifier var5, List var6) {
+      super(var1, var2);
       this.$interceptors = new Interceptor[5][];
-      $GenreController$Definition$Exec var6 = new $GenreController$Definition$Exec(true);
-      this.$proxyMethods[0] = var6.getExecutableMethodByIndex(1);
-      this.$interceptors[0] = InterceptorChain.resolveAroundInterceptors(var3, this.$proxyMethods[0], var5);
-      this.$proxyMethods[1] = var6.getExecutableMethodByIndex(2);
-      this.$interceptors[1] = InterceptorChain.resolveAroundInterceptors(var3, this.$proxyMethods[1], var5);
-      this.$proxyMethods[2] = var6.getExecutableMethodByIndex(3);
-      this.$interceptors[2] = InterceptorChain.resolveAroundInterceptors(var3, this.$proxyMethods[2], var5);
-      this.$proxyMethods[3] = var6.getExecutableMethodByIndex(4);
-      this.$interceptors[3] = InterceptorChain.resolveAroundInterceptors(var3, this.$proxyMethods[3], var5);
-      this.$proxyMethods[4] = var6.getExecutableMethodByIndex(6);
-      this.$interceptors[4] = InterceptorChain.resolveAroundInterceptors(var3, this.$proxyMethods[4], var5);
+      $GenreController$Definition$Exec var7 = new $GenreController$Definition$Exec(true);
+      this.$proxyMethods[0] = var7.getExecutableMethodByIndex(1);
+      this.$interceptors[0] = InterceptorChain.resolveAroundInterceptors(var4, this.$proxyMethods[0], var6);
+      this.$proxyMethods[1] = var7.getExecutableMethodByIndex(2);
+      this.$interceptors[1] = InterceptorChain.resolveAroundInterceptors(var4, this.$proxyMethods[1], var6);
+      this.$proxyMethods[2] = var7.getExecutableMethodByIndex(3);
+      this.$interceptors[2] = InterceptorChain.resolveAroundInterceptors(var4, this.$proxyMethods[2], var6);
+      this.$proxyMethods[3] = var7.getExecutableMethodByIndex(5);
+      this.$interceptors[3] = InterceptorChain.resolveAroundInterceptors(var4, this.$proxyMethods[3], var6);
+      this.$proxyMethods[4] = var7.getExecutableMethodByIndex(7);
+      this.$interceptors[4] = InterceptorChain.resolveAroundInterceptors(var4, this.$proxyMethods[4], var6);
    }
 }

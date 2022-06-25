@@ -1,11 +1,15 @@
 package com.example;
 
+import com.github.tivrfoa.mapresultset.api.Table;
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import javax.validation.constraints.NotNull;
 
 @MappedEntity
+@Table(
+   name = "genre"
+)
 public class Genre {
    @Id
    @GeneratedValue(GeneratedValue.Type.AUTO)

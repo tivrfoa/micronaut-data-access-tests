@@ -68,6 +68,8 @@ public final class $Genre$IntrospectionRef extends AbstractBeanIntrospectionRefe
       Map var0;
       $ANNOTATION_METADATA = new DefaultAnnotationMetadata(
          AnnotationUtil.mapOf(
+            "com.github.tivrfoa.mapresultset.api.Table",
+            AnnotationUtil.mapOf("name", "genre"),
             "io.micronaut.core.annotation.Introspected",
             AnnotationUtil.mapOf(
                "excludedAnnotations",
@@ -166,6 +168,8 @@ public final class $Genre$IntrospectionRef extends AbstractBeanIntrospectionRefe
             )
          ),
          AnnotationUtil.mapOf(
+            "com.github.tivrfoa.mapresultset.api.Table",
+            AnnotationUtil.mapOf("name", "genre"),
             "io.micronaut.core.annotation.Introspected",
             AnnotationUtil.mapOf(
                "excludedAnnotations",
