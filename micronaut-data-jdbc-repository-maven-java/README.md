@@ -58,3 +58,64 @@
 ```
 09:43:56.692 [main] WARN  o.t.u.TestcontainersConfiguration - Attempted to read Testcontainers configuration file at file:/home/lesco/.testcontainers.properties but the file was not found. Exception message: FileNotFoundException: /home/lesco/.testcontainers.properties (No such file or directory)
 ```
+
+## Testing
+
+```
+curl -X "POST" "http://localhost:8080/genres" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{ "name": "music" }'
+```
+
+
+```
+ __  __ _                                  _
+|  \/  (_) ___ _ __ ___  _ __   __ _ _   _| |_
+| |\/| | |/ __| '__/ _ \| '_ \ / _` | | | | __|
+| |  | | | (__| | | (_) | | | | (_| | |_| | |_
+|_|  |_|_|\___|_|  \___/|_| |_|\__,_|\__,_|\__|
+  Micronaut (v3.5.2)
+
+11:37:02.879 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+11:37:03.599 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+11:37:03.669 [main] INFO  i.m.flyway.AbstractFlywayMigration - Running migrations for database with qualifier [default]
+11:37:03.675 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 8.5.8 by Redgate
+11:37:03.676 [main] INFO  o.f.c.i.license.VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.8
+11:37:03.676 [main] INFO  o.f.c.i.license.VersionPrinter -
+11:37:03.742 [main] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/micronaut (MySQL 8.0)
+11:37:03.866 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.033s)
+11:37:03.910 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table `micronaut`.`flyway_schema_history` ...
+11:37:04.049 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `micronaut`: << Empty Schema >>
+11:37:04.062 [main] INFO  o.f.core.internal.command.DbMigrate - Migrating schema `micronaut` to version "1 - schema"
+11:37:04.082 [main] WARN  o.f.c.i.s.DefaultSqlScriptExecutor - DB: Unknown table 'micronaut.genre' (SQL State: 42S02 - Error Code: 1051)
+11:37:04.165 [main] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema `micronaut`, now at version v1 (execution time 00:00.128s)
+11:37:04.225 [main] DEBUG io.micronaut.data.query - Dropping Table:
+DROP TABLE `genre`
+11:37:04.254 [main] DEBUG io.micronaut.data.query - Executing CREATE statement:
+CREATE TABLE `genre` (`id` BIGINT PRIMARY KEY AUTO_INCREMENT,`name` VARCHAR(255) NOT NULL);
+11:37:04.912 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 3145ms. Server Running: http://localhost:8080
+11:37:52.000 [io-executor-thread-2] DEBUG io.micronaut.data.query - Executing SQL query: INSERT INTO `genre` (`name`) VALUES (?)
+11:37:52.001 [io-executor-thread-2] TRACE io.micronaut.data.query - Binding parameter at position 1 to value music with data type: STRING
+```
+
+### How Querying works
+
+```
+curl localhost:8080/genres/list
+[{"id":1,"name":"music"},{"id":2,"name":"ok"}]
+```
+
+```
+[io-executor-thread-2] DEBUG io.micronaut.data.query - Executing Query: SELECT genre_.`id`,genre_.`name` FROM `genre` genre_ LIMIT 100
+[io-executor-thread-2] DEBUG io.micronaut.data.query - Executing Query: SELECT COUNT(*) FROM `genre` genre_
+```
+
+```
+mysql> select * from genre;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | music |
+|  2 | ok    |
++----+-------+
+```
