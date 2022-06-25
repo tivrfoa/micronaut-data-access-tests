@@ -207,3 +207,19 @@ curl -X "PUT" "http://localhost:8080/genres" \
   }
 }
 ```
+## Using MapResultSet with Micronaut!!!
+
+```shell
+http localhost:8080/genres/listGenres
+```
+
+```json
+[
+    {
+        "country": "Brazil",
+        "id": 1,
+        "name": "music",
+        "value": 10.0
+    }
+]
+```

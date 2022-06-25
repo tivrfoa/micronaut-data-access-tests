@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @JdbcRepository(dialect = Dialect.MYSQL) 
-public interface GenreRepository extends PageableRepository<Genre, Long> { 
+public interface GenreRepository extends PageableRepository<Genre, Long> {
 
     Genre save(@NonNull @NotBlank String name, double value, String country);
 

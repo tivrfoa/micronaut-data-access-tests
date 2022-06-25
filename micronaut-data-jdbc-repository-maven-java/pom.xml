@@ -15,8 +15,8 @@
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>11</jdk.version>
-    <release.version>11</release.version>
+    <jdk.version>17</jdk.version>
+    <release.version>17</release.version>
     <micronaut.version>3.5.2</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <micronaut.data.version>3.4.2</micronaut.data.version>
@@ -31,6 +31,11 @@
   </repositories>
 
   <dependencies>
+    <dependency>
+      <groupId>com.github.tivrfoa</groupId>
+      <artifactId>mapresultset</artifactId>
+      <version>0.1.0</version>
+    </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
       <artifactId>micronaut-inject</artifactId>
@@ -162,6 +167,11 @@
               <groupId>io.micronaut</groupId>
               <artifactId>micronaut-validation</artifactId>
               <version>${micronaut.version}</version>
+            </path>
+            <path>
+              <groupId>com.github.tivrfoa</groupId>
+              <artifactId>mapresultset-processor</artifactId>
+              <version>0.1.0</version>
             </path>
           </annotationProcessorPaths>
           <compilerArgs>

@@ -25,9 +25,11 @@ import java.util.Optional;
 @Controller("/genres")  
 public class GenreController {
 
+    protected final GenreDao genreDao;
     protected final GenreRepository genreRepository;
 
-    public GenreController(GenreRepository genreRepository) { 
+    public GenreController(GenreDao genreDao, GenreRepository genreRepository) {
+        this.genreDao = genreDao;
         this.genreRepository = genreRepository;
     }
 
@@ -56,6 +58,16 @@ public class GenreController {
     @Get("/list") 
     public List<Genre> list(@Valid Pageable pageable) { 
         return genreRepository.findAll(pageable).getContent();
+    }
+
+    /**
+     * Using MapResultSet
+     * 
+     * @return List<Genre>
+     */
+    @Get("/listGenres") 
+    public List<Genre> list() { 
+        return genreDao.listGenres();
     }
 
     @Post("/name")
