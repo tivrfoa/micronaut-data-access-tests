@@ -1,0 +1,2 @@
+io.micronaut.flyway.$BeanConfiguration
+io.micronaut.configuration.jdbc.hikari.$BeanConfiguration

@@ -1,0 +1,19 @@
+micronaut:
+  application:
+    name: demo
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/db
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: lesco
+    password: '123'
+    schema-generate: CREATE_DROP
+    dialect: MYSQL
+netty:
+  default:
+    allocator:
+      max-order: 3
+flyway:
+  datasources:
+    default:
+      enabled: true

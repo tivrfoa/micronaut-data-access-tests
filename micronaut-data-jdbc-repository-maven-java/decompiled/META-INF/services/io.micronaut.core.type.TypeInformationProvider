@@ -1,0 +1,3 @@
+io.micronaut.inject.provider.ProviderTypeInformationProvider
+io.micronaut.core.async.ReactiveStreamsTypeInformationProvider
+io.micronaut.http.util.HttpTypeInformationProvider

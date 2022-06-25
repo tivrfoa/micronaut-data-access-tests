@@ -1,0 +1,22 @@
+package ch.qos.logback.core.rolling;
+
+import ch.qos.logback.core.spi.ContextAwareBase;
+
+public abstract class TriggeringPolicyBase<E> extends ContextAwareBase implements TriggeringPolicy<E> {
+   private boolean start;
+
+   @Override
+   public void start() {
+      this.start = true;
+   }
+
+   @Override
+   public void stop() {
+      this.start = false;
+   }
+
+   @Override
+   public boolean isStarted() {
+      return this.start;
+   }
+}

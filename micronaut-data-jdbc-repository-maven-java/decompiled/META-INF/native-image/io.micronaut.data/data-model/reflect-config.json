@@ -1,0 +1,36 @@
+[ {
+  "name" : "io.micronaut.data.model.DefaultSlice",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.util.List", "io.micronaut.data.model.Pageable" ]
+  }, {
+    "name" : "getContent",
+    "parameterTypes" : [ ]
+  }, {
+    "name" : "getPageable",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "io.micronaut.data.model.DefaultPage",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.util.List", "io.micronaut.data.model.Pageable", "long" ]
+  }, {
+    "name" : "getTotalSize",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "io.micronaut.data.model.Page",
+  "methods" : [ {
+    "name" : "of",
+    "parameterTypes" : [ "java.util.List", "io.micronaut.data.model.Pageable", "long" ]
+  } ],
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "io.micronaut.data.model.Slice",
+  "methods" : [ {
+    "name" : "of",
+    "parameterTypes" : [ "java.util.List", "io.micronaut.data.model.Pageable" ]
+  } ],
+  "allDeclaredConstructors" : true
+} ]

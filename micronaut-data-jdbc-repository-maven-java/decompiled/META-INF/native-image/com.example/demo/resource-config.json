@@ -1,0 +1,19 @@
+{
+  "resources" : [ {
+    "pattern" : "\\Qlogback.xml\\E"
+  }, {
+    "pattern" : "\\QMETA-INF/micronaut/io.micronaut.core.beans.BeanIntrospectionReference/com.example.$Genre$IntrospectionRef\\E"
+  }, {
+    "pattern" : "\\QMETA-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.example.$GenreController$Definition$Intercepted$Definition$Reference\\E"
+  }, {
+    "pattern" : "\\QMETA-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.example.$GenreController$Definition$Reference\\E"
+  }, {
+    "pattern" : "\\QMETA-INF/micronaut/io.micronaut.inject.BeanDefinitionReference/com.example.$GenreRepository$Intercepted$Definition$Reference\\E"
+  }, {
+    "pattern" : "\\Qdb/migration/V1__schema.sql\\E"
+  }, {
+    "pattern" : "\\Qapplication.yml\\E"
+  }, {
+    "pattern" : "\\QMETA-INF/micronaut/io.micronaut.core.beans.BeanIntrospectionReference/com.example.$GenreUpdateCommand$IntrospectionRef\\E"
+  } ]
+}
