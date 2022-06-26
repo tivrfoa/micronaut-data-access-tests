@@ -298,3 +298,27 @@ curl -X "POST" "http://localhost:8080/person"      -H 'Content-Type: application
 
 http :8080/person/list
 
+Micronaut Generated SQL
+
+```sql
+-- Addresses
+SELECT person_.`id`,person_.`name`,person_.`born_timestamp`,person_addresses_.`id` AS addresses_id,person_addresses_.`street` AS addresses_street FROM `person` person_ INNER JOIN `person_address` person_addresses_person_address_ ON person_.`id`=person_addresses_person_address_.`person_id`  INNER JOIN `address` person_addresses_ ON person_addresses_person_address_.`address_id`=person_addresses_.`id`
+
+-- Addresses and Phones
+SELECT person_.`id`,person_.`name`,person_.`born_timestamp`,person_phones_.`id` AS phones_id,person_phones_.`number` AS phones_number,person_addresses_.`id` AS addresses_id,person_addresses_.`street` AS addresses_street FROM `person` person_ INNER JOIN `person_phone` person_phones_person_phone_ ON person_.`id`=person_phones_person_phone_.`person_id`  INNER JOIN `phone` person_phones_ ON person_phones_person_phone_.`phone_id`=person_phones_.`id` INNER JOIN `person_address` person_addresses_person_address_ ON person_.`id`=person_addresses_person_address_.`person_id`  INNER JOIN `address` person_addresses_ ON person_addresses_person_address_.`address_id`=person_addresses_.`id`
+```
+
+```sql
+-- Addresses
+select *
+from person p join person_address pa on
+  p.id = pa.person_id join address a on
+  a.id = pa.address_id;
+
+-- Addresses and Phones
+select *
+from person p join person_address pa on
+  p.id = pa.person_id join address a on
+  a.id = pa.address_id join Phone on
+  p.id = phone.person_id;
+```

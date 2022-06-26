@@ -50,3 +50,9 @@ create table person_address (
     foreign key (person_id) references person(id),
     foreign key (address_id) references address(id)
 );
+
+
+insert into person_address values
+(1, 1),
+(2, 2),
+(3, 3);

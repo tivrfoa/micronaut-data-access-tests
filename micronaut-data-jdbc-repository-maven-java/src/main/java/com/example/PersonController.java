@@ -36,6 +36,18 @@ public class PersonController {
         List<Person> listPerson = personRepository.findAll(pageable).getContent();
         for (Person p : listPerson) {
             System.out.println(p.getAddresses());
+            System.out.println(p.getPhones());
+        }
+        return listPerson;
+    }
+
+    @Get("/listAddressesAndPhones") 
+    public List<Person> listWithRelationships(@Valid Pageable pageable) { 
+        // List<Person> listPerson = personRepository.list(pageable).getContent();
+        List<Person> listPerson = personRepository.list();
+        for (Person p : listPerson) {
+            System.out.println(p.getAddresses());
+            System.out.println(p.getPhones());
         }
         return listPerson;
     }
