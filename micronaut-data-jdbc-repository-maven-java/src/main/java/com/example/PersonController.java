@@ -1,7 +1,6 @@
 package com.example;
 
 import java.net.URI;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -34,7 +33,11 @@ public class PersonController {
 
     @Get("/list") 
     public List<Person> list(@Valid Pageable pageable) { 
-        return personRepository.findAll(pageable).getContent();
+        List<Person> listPerson = personRepository.findAll(pageable).getContent();
+        for (Person p : listPerson) {
+            System.out.println(p.getAddresses());
+        }
+        return listPerson;
     }
 
     /**
@@ -48,9 +51,8 @@ public class PersonController {
     }
 
     @Post
-    public HttpResponse<Person> save(@Body("name") @NotBlank String name, Timestamp bornTimestamp,
-            Time wakeUpTime) {
-        Person person = personRepository.save(name, bornTimestamp, wakeUpTime);
+    public HttpResponse<Person> save(@Body("name") @NotBlank String name, Timestamp bornTimestamp) {
+        Person person = personRepository.save(name, bornTimestamp);
 
         return HttpResponse
                 .created(person)

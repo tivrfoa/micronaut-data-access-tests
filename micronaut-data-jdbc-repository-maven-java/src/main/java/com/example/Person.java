@@ -1,11 +1,11 @@
 package com.example;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 
 import com.github.tivrfoa.mapresultset.api.ManyToMany;
 
+import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.MappedProperty;
@@ -15,12 +15,11 @@ import io.micronaut.data.annotation.Relation;
 @MappedEntity
 public class Person {
 	@Id
+    @GeneratedValue(GeneratedValue.Type.AUTO)
 	private int id;
 	private String name;
 	@MappedProperty (value = "born_timestamp")
 	private Timestamp bornTimestamp;
-	@MappedProperty (value = "wakeup_time")
-	private Time wakeUpTime;
 	//@OneToMany
     @Relation (value = Relation.Kind.ONE_TO_MANY)
 	private List<Phone> phones;
@@ -54,14 +53,6 @@ public class Person {
 		this.bornTimestamp = bornTimestamp;
 	}
 
-	public Time getWakeUpTime() {
-		return wakeUpTime;
-	}
-
-	public void setWakeUpTime(Time wakeUpTime) {
-		this.wakeUpTime = wakeUpTime;
-	}
-
 	public List<Phone> getPhones() {
 		return phones;
 	}
@@ -81,7 +72,6 @@ public class Person {
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + ", bornTimestamp=" + bornTimestamp +
-				", wakeUpTime=" + wakeUpTime +
 				", addresses=" + addresses + ", phones=" + phones +  "]";
 	}
 

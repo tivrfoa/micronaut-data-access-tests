@@ -290,3 +290,11 @@ java.lang.IllegalArgumentException: Specified value [Thu Jan 01 00:00:00 BRT 197
 	at io.micronaut.http.server.RouteExecutor.lambda$executeRoute$14(RouteExecutor.java:659)
 ```
 
+### I made id in person auto_increment
+
+```shell
+curl -X "POST" "http://localhost:8080/person"      -H 'Content-Type: application/json; charset=Ttf-8'      -d $'{ "name": "Leandro", "bornTimestamp": "2022-06-26T17:05:49", "wakeUpTime": "07:02:35" }'
+```
+
+http :8080/person/list
+

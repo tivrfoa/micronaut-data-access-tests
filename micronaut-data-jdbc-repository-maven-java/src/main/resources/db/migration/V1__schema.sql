@@ -10,17 +10,16 @@ CREATE TABLE genre (
 );
 
 create table person (
-    id int primary key,
+    id int auto_increment primary key,
     name varchar(30),
-    born_timestamp timestamp,
-    wakeup_time time
+    born_timestamp timestamp
 );
 
 
 insert into person values
-(1, 'Leandro', current_timestamp, current_time + 3),
-(2, 'Guilherme', '1989-07-03 08:09:10', current_time + 1),
-(3, 'Marcos', '1985-03-04 05:06:07', current_time + 2);
+(1, 'Leandro', current_timestamp),
+(2, 'Guilherme', '1989-07-03 08:09:10'),
+(3, 'Marcos', '1985-03-04 05:06:07');
 
 create table Phone (
     id int primary key,
