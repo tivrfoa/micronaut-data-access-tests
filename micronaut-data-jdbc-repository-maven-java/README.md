@@ -223,3 +223,70 @@ http localhost:8080/genres/listGenres
     }
 ]
 ```
+
+## Testing Join/Relationships
+
+http :8080/person/list
+
+```shell
+curl -X "POST" "http://localhost:8080/person"      -H 'Content-Type: application/json; charset=Ttf-8'      -d $'{ "name": "Leandro", "bornTimestamp": "2022-06-26T17:05:49", "wakeUpTime": "07:02:35" }'
+```
+
+```txt
+[io-executor-thread-2] DEBUG io.micronaut.data.query - Executing SQL query: INSERT INTO `person` (`name`,`born_timestamp`,`wakeup_time`,`id`) VALUES (?,?,?,?)
+[io-executor-thread-2] TRACE io.micronaut.data.query - Binding parameter at position 1 to value Leandro with data type: STRING
+[io-executor-thread-2] TRACE io.micronaut.data.query - Binding parameter at position 2 to value 2022-06-26 14:05:49.0 with data type: TIMESTAMP
+[io-executor-thread-2] TRACE io.micronaut.data.query - Binding parameter at position 3 to value 07:02:35 with data type: DATE
+[io-executor-thread-2] TRACE io.micronaut.data.query - Binding parameter at position 4 to value 0 with data type: INTEGER
+```
+
+http :8080/person/list
+
+```txt
+[io-executor-thread-2] DEBUG io.micronaut.data.query - Executing Query: SELECT person_.`id`,person_.`name`,person_.`born_timestamp`,person_.`wakeup_time` FROM `person` person_ LIMIT 100
+[io-executor-thread-1] ERROR i.m.http.server.RouteExecutor - Unexpected error occurred: Specified value [Thu Jan 01 00:00:00 BRT 1970] is not of the correct type: class java.sql.Time
+
+java.lang.IllegalArgumentException: Specified value [Thu Jan 01 00:00:00 BRT 1970] is not of the correct type: class java.sql.Time
+	at io.micronaut.inject.beans.AbstractInitializableBeanIntrospection$BeanPropertyImpl.set(AbstractInitializableBeanIntrospection.java:446)
+	at io.micronaut.data.runtime.mapper.sql.SqlResultEntityTypeMapper.setProperty(SqlResultEntityTypeMapper.java:389)
+	at io.micronaut.data.runtime.mapper.sql.SqlResultEntityTypeMapper.convertAndSetWithValue(SqlResultEntityTypeMapper.java:606)
+	at io.micronaut.data.runtime.mapper.sql.SqlResultEntityTypeMapper.readEntity(SqlResultEntityTypeMapper.java:560)
+	at io.micronaut.data.runtime.mapper.sql.SqlResultEntityTypeMapper.map(SqlResultEntityTypeMapper.java:195)
+	at io.micronaut.data.jdbc.operations.DefaultJdbcRepositoryOperations$1.tryAdvance(DefaultJdbcRepositoryOperations.java:458)
+	at java.base/java.util.Spliterator.forEachRemaining(Spliterator.java:332)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at io.micronaut.data.jdbc.operations.DefaultJdbcRepositoryOperations.lambda$findAll$6(DefaultJdbcRepositoryOperations.java:531)
+	at io.micronaut.data.jdbc.operations.DefaultJdbcRepositoryOperations.lambda$executeRead$18(DefaultJdbcRepositoryOperations.java:709)
+	at io.micronaut.transaction.support.AbstractSynchronousStateTransactionManager.execute(AbstractSynchronousStateTransactionManager.java:146)
+	at io.micronaut.transaction.support.AbstractSynchronousStateTransactionManager.executeRead(AbstractSynchronousStateTransactionManager.java:162)
+	at io.micronaut.transaction.support.AbstractSynchronousTransactionManager.executeRead(AbstractSynchronousTransactionManager.java:133)
+	at io.micronaut.data.jdbc.operations.DefaultJdbcRepositoryOperations.executeRead(DefaultJdbcRepositoryOperations.java:709)
+	at io.micronaut.data.jdbc.operations.DefaultJdbcRepositoryOperations.findAll(DefaultJdbcRepositoryOperations.java:529)
+	at io.micronaut.data.runtime.intercept.DefaultFindPageInterceptor.intercept(DefaultFindPageInterceptor.java:55)
+	at io.micronaut.data.intercept.DataIntroductionAdvice.intercept(DataIntroductionAdvice.java:135)
+	at io.micronaut.data.intercept.DataIntroductionAdvice.intercept(DataIntroductionAdvice.java:98)
+	at io.micronaut.aop.chain.MethodInterceptorChain.proceed(MethodInterceptorChain.java:137)
+	at io.micronaut.validation.ValidatingInterceptor.intercept(ValidatingInterceptor.java:143)
+	at io.micronaut.aop.chain.MethodInterceptorChain.proceed(MethodInterceptorChain.java:137)
+	at com.example.PersonRepository$Intercepted.findAll(Unknown Source)
+	at com.example.PersonController.list(PersonController.java:37)
+	at com.example.$PersonController$Definition$Intercepted.$$access$$list(Unknown Source)
+	at com.example.$PersonController$Definition$Exec.dispatch(Unknown Source)
+	at io.micronaut.context.AbstractExecutableMethodsDefinition$DispatchedExecutableMethod.invoke(AbstractExecutableMethodsDefinition.java:378)
+	at io.micronaut.aop.chain.MethodInterceptorChain.proceed(MethodInterceptorChain.java:128)
+	at io.micronaut.validation.ValidatingInterceptor.intercept(ValidatingInterceptor.java:143)
+	at io.micronaut.aop.chain.MethodInterceptorChain.proceed(MethodInterceptorChain.java:137)
+	at com.example.$PersonController$Definition$Intercepted.list(Unknown Source)
+	at com.example.$PersonController$Definition$Exec.dispatch(Unknown Source)
+	at io.micronaut.context.AbstractExecutableMethodsDefinition$DispatchedExecutableMethod.invoke(AbstractExecutableMethodsDefinition.java:378)
+	at io.micronaut.context.DefaultBeanContext$4.invoke(DefaultBeanContext.java:592)
+	at io.micronaut.web.router.AbstractRouteMatch.execute(AbstractRouteMatch.java:303)
+	at io.micronaut.web.router.RouteMatch.execute(RouteMatch.java:111)
+	at io.micronaut.http.context.ServerRequestContext.with(ServerRequestContext.java:103)
+	at io.micronaut.http.server.RouteExecutor.lambda$executeRoute$14(RouteExecutor.java:659)
+```
+
