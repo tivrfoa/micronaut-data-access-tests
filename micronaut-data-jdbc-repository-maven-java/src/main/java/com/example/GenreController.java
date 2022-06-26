@@ -85,7 +85,7 @@ public class GenreController {
 
         return HttpResponse
                 .created(newGenre)
-                .headers(headers -> headers.location(location(genre.getId())));
+                .headers(headers -> headers.location(location(newGenre.getId())));
     }
 
     @Post("/ex") 

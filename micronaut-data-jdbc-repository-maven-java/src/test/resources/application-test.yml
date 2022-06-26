@@ -1,4 +1,16 @@
+# datasources:
+#   default:
+#     url: jdbc:tc:mysql:8:///db
+#     driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+micronaut:
+  http:
+    client:
+      read-timeout: 30000s
 datasources:
   default:
-    url: jdbc:tc:mysql:8:///db
-    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:mysql://localhost:3306/micronaut
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: lesco
+    password: '123'
+    schema-generate: CREATE_DROP
+    dialect: MYSQL

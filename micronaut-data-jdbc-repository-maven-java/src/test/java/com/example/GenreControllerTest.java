@@ -62,7 +62,7 @@ public class GenreControllerTest {
 
         assertEquals("Microservices", genre.getName());
 
-        request = HttpRequest.PUT("/genres", new GenreUpdateCommand(id, "Micro-services"));
+        request = HttpRequest.PUT("/genres/name", new GenreUpdateCommand(id, "Micro-services"));
         response = client.toBlocking().exchange(request);  
 
         assertEquals(HttpStatus.NO_CONTENT, response.getStatus());
