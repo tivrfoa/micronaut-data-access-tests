@@ -21,7 +21,7 @@ public class Person {
 	@MappedProperty (value = "born_timestamp")
 	private Timestamp bornTimestamp;
 	//@OneToMany
-    @Relation (value = Relation.Kind.ONE_TO_MANY)
+    @Relation (value = Relation.Kind.ONE_TO_MANY, mappedBy = "person")
 	private List<Phone> phones;
 	// @ManyToOne
 	// private Country country;
@@ -72,7 +72,8 @@ public class Person {
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + ", bornTimestamp=" + bornTimestamp +
-				", addresses=" + addresses + ", phones=" + phones +  "]";
+		//		", addresses=" + addresses + ", phones=" + phones +  "]";
+				", addresses=" + addresses + "]";
 	}
 
 }
