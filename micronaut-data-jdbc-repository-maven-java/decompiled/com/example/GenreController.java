@@ -67,7 +67,7 @@ public class GenreController {
    @Post
    public HttpResponse<Genre> save(@Body Genre genre) {
       Genre newGenre = this.genreRepository.save(genre.getName(), genre.getValue(), genre.getCountry());
-      return HttpResponse.created(newGenre).headers((Consumer<MutableHttpHeaders>)(headers -> headers.location(this.location(genre.getId()))));
+      return HttpResponse.created(newGenre).headers((Consumer<MutableHttpHeaders>)(headers -> headers.location(this.location(newGenre.getId()))));
    }
 
    @Post("/ex")

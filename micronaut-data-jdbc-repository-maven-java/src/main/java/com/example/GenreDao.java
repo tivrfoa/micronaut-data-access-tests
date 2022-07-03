@@ -31,7 +31,7 @@ public abstract class GenreDao implements CrudRepository<Genre, Long> {
     public List<Genre> listGenres() {
         return jdbcOperations.prepareStatement(listGenres, statement -> {
             ResultSet resultSet = statement.executeQuery(listGenres);
-            return MapResultSet.listGenres(resultSet).getListGenre();
+            return MapResultSet.listGenres(resultSet);
         });
     }
 }
