@@ -322,3 +322,93 @@ from person p join person_address pa on
   a.id = pa.address_id join Phone on
   p.id = phone.person_id;
 ```
+
+
+## Micronaut Data Compiled Query Example
+
+decompiled/com/example/$PersonRepository$Intercepted$Definition$Exec.java
+
+```java
+         new AbstractExecutableMethodsDefinition.MethodReference(
+            PersonRepository.class,
+            new AnnotationMetadataHierarchy(
+               $PersonRepository$Intercepted$Definition$Reference.$ANNOTATION_METADATA,
+               new DefaultAnnotationMetadata(
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf(
+                        "value",
+                        "SELECT person_.`id`,person_.`name`,person_.`born_timestamp`,person_phones_.`id` AS phones_id,person_phones_.`number` AS phones_number,person_phones_.`person_id` AS phones_person_id,person_addresses_.`id` AS addresses_id,person_addresses_.`street` AS addresses_street FROM `person` person_ INNER JOIN `Phone` person_phones_ ON person_.`id`=person_phones_.`person_id` INNER JOIN `person_address` person_addresses_person_address_ ON person_.`id`=person_addresses_person_address_.`person_id`  INNER JOIN `address` person_addresses_ ON person_addresses_person_address_.`address_id`=person_addresses_.`id`"
+                     ),
+                     "io.micronaut.data.annotation.repeatable.JoinSpecifications",
+                     AnnotationUtil.mapOf(
+                        "value",
+                        new AnnotationValue[]{
+                           new AnnotationValue(
+                              "io.micronaut.data.annotation.Join",
+                              AnnotationUtil.mapOf("type", "FETCH", "value", "addresses"),
+                              var2 = AnnotationMetadataSupport.getDefaultValues("io.micronaut.data.annotation.Join")
+                           ),
+                           new AnnotationValue("io.micronaut.data.annotation.Join", AnnotationUtil.mapOf("type", "FETCH", "value", "phones"), var2)
+                        }
+                     ),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_3()},
+                        "opType",
+                        DataMethod.OperationType.QUERY,
+                        "resultDataType",
+                        DataType.ENTITY,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  Collections.EMPTY_MAP,
+                  AnnotationUtil.mapOf(
+                     "io.micronaut.data.annotation.Query",
+                     AnnotationUtil.mapOf(
+                        "value",
+                        "SELECT person_.`id`,person_.`name`,person_.`born_timestamp`,person_phones_.`id` AS phones_id,person_phones_.`number` AS phones_number,person_phones_.`person_id` AS phones_person_id,person_addresses_.`id` AS addresses_id,person_addresses_.`street` AS addresses_street FROM `person` person_ INNER JOIN `Phone` person_phones_ ON person_.`id`=person_phones_.`person_id` INNER JOIN `person_address` person_addresses_person_address_ ON person_.`id`=person_addresses_person_address_.`person_id`  INNER JOIN `address` person_addresses_ ON person_addresses_person_address_.`address_id`=person_addresses_.`id`"
+                     ),
+                     "io.micronaut.data.annotation.repeatable.JoinSpecifications",
+                     AnnotationUtil.mapOf(
+                        "value",
+                        new AnnotationValue[]{
+                           new AnnotationValue("io.micronaut.data.annotation.Join", AnnotationUtil.mapOf("type", "FETCH", "value", "addresses"), var2),
+                           new AnnotationValue("io.micronaut.data.annotation.Join", AnnotationUtil.mapOf("type", "FETCH", "value", "phones"), var2)
+                        }
+                     ),
+                     "io.micronaut.data.intercept.annotation.DataMethod",
+                     AnnotationUtil.mapOf(
+                        "idType",
+                        "java.lang.Long",
+                        "interceptor",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_3()},
+                        "opType",
+                        DataMethod.OperationType.QUERY,
+                        "resultDataType",
+                        DataType.ENTITY,
+                        "resultType",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()},
+                        "rootEntity",
+                        new AnnotationClassValue[]{$micronaut_load_class_value_1()}
+                     )
+                  ),
+                  Collections.EMPTY_MAP,
+                  false,
+                  true
+               )
+            ),
+            "list",
+            Argument.of(List.class, "java.util.List", null, Argument.ofTypeVariable(Person.class, "E")),
+            null,
+            true,
+            false
+         ),
+```
