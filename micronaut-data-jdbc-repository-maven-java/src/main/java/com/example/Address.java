@@ -2,9 +2,9 @@ package com.example;
 
 import java.util.List;
 
-import com.github.tivrfoa.mapresultset.api.Id;
-import com.github.tivrfoa.mapresultset.api.ManyToMany;
-import com.github.tivrfoa.mapresultset.api.Table;
+import io.github.tivrfoa.mapresultset.api.Id;
+import io.github.tivrfoa.mapresultset.api.ManyToMany;
+import io.github.tivrfoa.mapresultset.api.Table;
 
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Relation;

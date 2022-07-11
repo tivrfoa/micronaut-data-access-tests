@@ -32,9 +32,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.github.tivrfoa</groupId>
+      <groupId>io.github.tivrfoa</groupId>
       <artifactId>mapresultset</artifactId>
-      <version>0.1.0</version>
+      <version>0.1.1</version>
     </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
@@ -127,9 +127,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.github.tivrfoa</groupId>
+      <groupId>io.github.tivrfoa</groupId>
       <artifactId>mapresultset-processor</artifactId>
-      <version>0.1.0</version>
+      <version>0.1.1</version>
     </dependency>
   </dependencies>
 
@@ -182,9 +182,9 @@
                     <version>${micronaut.version}</version>
                   </path>
                   <path>
-                    <groupId>com.github.tivrfoa</groupId>
+                    <groupId>io.github.tivrfoa</groupId>
                     <artifactId>mapresultset-processor</artifactId>
-                    <version>0.1.0</version>
+                    <version>0.1.1</version>
                   </path>
                 </annotationProcessorPaths>
               </configuration>

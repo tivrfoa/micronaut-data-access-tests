@@ -1,7 +1,7 @@
 package com.example;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.github.tivrfoa.mapresultset.api.Table;
+import io.github.tivrfoa.mapresultset.api.Table;
 
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;

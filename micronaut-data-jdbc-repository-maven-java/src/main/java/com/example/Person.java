@@ -3,7 +3,7 @@ package com.example;
 import java.sql.Timestamp;
 import java.util.List;
 
-import com.github.tivrfoa.mapresultset.api.ManyToMany;
+import io.github.tivrfoa.mapresultset.api.ManyToMany;
 
 import io.micronaut.data.annotation.GeneratedValue;
 import io.micronaut.data.annotation.Id;

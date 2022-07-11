@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.github.tivrfoa.mapresultset.api.Query;
+import io.github.tivrfoa.mapresultset.api.Query;
 
 import io.micronaut.data.jdbc.annotation.JdbcRepository;
 import io.micronaut.data.jdbc.runtime.JdbcOperations;

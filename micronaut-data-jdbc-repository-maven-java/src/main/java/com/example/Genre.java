@@ -6,7 +6,7 @@ import io.micronaut.data.annotation.MappedEntity;
 
 import javax.validation.constraints.NotNull;
 
-import com.github.tivrfoa.mapresultset.api.Table;
+import io.github.tivrfoa.mapresultset.api.Table;
 
 @MappedEntity
 @Table (name = "genre")
